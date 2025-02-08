@@ -119,9 +119,6 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   mouse {
     display-name = "Mouse";
     bindings = <
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
       &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_ML    M_B2
       M_B2        &mo L_MSE  M_B1        M_MU   M_MR    M_MD
       M_SL        M_B3       &kp LALT    M_SD   M_SU    M_SR 
@@ -134,12 +131,12 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   functions {
     display-name = "Functions";
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-//       &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
-//       &kp F1         &kp F2    &kp F3          &kp F7         &kp F8        &kp F9
-//       XX             XX        XX              XX             XX            &mo L_FUN  
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+      &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
+      &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
+      XX             XX           XX              XX             XX            &mo L_FUN  
       
     >;
   };
@@ -148,10 +145,10 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   bluetooth {
     display-name = "Bluetooth";
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      
+      TODO  TODO  &out OUT_USB    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
+      TODO  TODO  &out OUT_BLE    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+      TODO  TODO  TODO            TODO          TODO          TODO 
+      // TODO: &bt BT_CLR
     >;
   };
   
