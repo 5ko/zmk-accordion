@@ -111,12 +111,12 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
     // tap-dance doesn't work with layer-hold
     // unless we use non-momentary layers?
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-//       MAYBE      &kp RBRC  &kp LBRC   &kp RPAR  &kp LPAR  &kp COLON
-//       &mo L_PAR  &kp LT    &kp GT     &kp RBRC  &kp LBRC  &kp SEMI
-//       TODO       TODO      TODO       TODO      TODO      TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+      MAYBE      &kp LBRC  &kp RBRC   &kp LPAR  &kp RPAR  &kp COLON
+      &mo L_PAR  &kp LT    &kp GT     &kp RBKT  &kp LBKT  &kp SEMI
+      TODO       TODO      TODO       TODO      TODO      TODO 
     >;
   };
   navigation {
