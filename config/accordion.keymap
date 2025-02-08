@@ -51,3 +51,21 @@
 // #include "timeouts.dtsi"
 // #include "behaviors.dtsi"
 // #include "combos.dtsi"
+
+
+/ { keymap { compatible = "zmk,keymap";
+  left {
+    display-name = "Base";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &kp A  &kp B  &kp C     &kp D  &kp E  &kp F
+      &kp G  &kp H  &kp I     &kp J  &kp K  &kp L
+      &kp M  &kp N  &kp O     &kp P  &kp Q  &kp R
+      
+    >;
+  };
+  
+
+}; };
+
