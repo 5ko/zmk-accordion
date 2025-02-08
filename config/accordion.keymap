@@ -110,7 +110,7 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
     bindings = <
       &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
       &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
-      &hl L_NUM  N   &kp SPACE    &kp BSPC       &mo L_ALF2   &kp ENTER   &hl L_FUN  H
+      &hl L_NUM  N   &kp SPACE    &kp BSPC       &kp ENTER  &sl L_ALF2    &hl L_FUN  H
       
     >;
   };
