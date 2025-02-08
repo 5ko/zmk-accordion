@@ -109,9 +109,6 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   navigation {
     display-name = "Navigation";
     bindings = <
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
       &kp LSHIFT &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
       MM_VD     MM_VU      &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
       E_PRINT   NN_PREV    NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
@@ -121,15 +118,13 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   
   mouse {
     display-name = "Mouse";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-//       &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_ML    M_B2
-//       M_B2        &mo L_MSE  M_B1        M_MU   M_MR    M_MD
-//       M_SL        M_B3       TODO        M_SD   M_SU    M_SR 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+      &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_ML    M_B2
+      M_B2        &mo L_MSE  M_B1        M_MU   M_MR    M_MD
+      M_SL        M_B3       &kp LALT    M_SD   M_SU    M_SR 
       
       
     >;
@@ -138,13 +133,11 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   
   functions {
     display-name = "Functions";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
       TODO  TODO  TODO    TODO  TODO  TODO 
       TODO  TODO  TODO    TODO  TODO  TODO 
       TODO  TODO  TODO    TODO  TODO  TODO 
-//       &mt LSHIFT F4  &mt LALT  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
+//       &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
 //       &kp F1         &kp F2    &kp F3          &kp F7         &kp F8        &kp F9
 //       XX             XX        XX              XX             XX            &mo L_FUN  
       
@@ -154,15 +147,10 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   
   bluetooth {
     display-name = "Bluetooth";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
       TODO  TODO  TODO    TODO  TODO  TODO 
       TODO  TODO  TODO    TODO  TODO  TODO 
       TODO  TODO  TODO    TODO  TODO  TODO 
-//       &kp F4  &kp F5  &kp F6     &kp F10  &kp F11  &kp F12
-//       &kp F1  &kp F2  &kp F3     &kp F7   &kp F8   &kp F9
-//       XX      XX      XX         XX       XX       &mo L_FUN
       
     >;
   };
