@@ -73,8 +73,6 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
 / { keymap { compatible = "zmk,keymap";
   alpha1 {
     display-name = "Alpha 1";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
       &mt LSHIFT L   &mt LALT  D  &mt LCTRL C    &mt RCTRL U  &mt LALT O  &mt RSHIFT Y
       &lt L_PAR  S   &lt L_MSE T  &lt L_NAV R    &kp       A  &kp E       &kp I
@@ -84,8 +82,6 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   };
   alpha2 {
     display-name = "Alpha 2";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
       &mt LSHIFT P  &mt LALT B  &mt LCTRL V    &mt RCTRL F  &mt LALT Q  &mt RSHIFT Z
       &kp G         &kp M       &kp W          &kp X        &kp K       &kp J
@@ -95,10 +91,6 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   numbers {
     display-name = "Numbers";
     bindings = <
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-      
       &kp STAR    &kp MINUS      &kp PLUS    &kp N4     &kp N5   &kp N6
       &kp N7      &kp N8         &kp N9      &kp N1     &kp N2   &kp M3
       &mo L_NUM   &mt BSLH FSLH  &kp DEL     &kp EQUAL  &kp N0   &kp DOT 
@@ -108,12 +100,7 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   
   parentheses {
     display-name = "Parentheses";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
       MAYBE      &kp LBRC  &kp RBRC   &kp LPAR  &kp RPAR  &kp COLON
       &mo L_PAR  &kp LT    &kp GT     &kp RBKT  &kp LBKT  &kp SEMI
       TODO       TODO      TODO       TODO      TODO      TODO 
@@ -121,15 +108,13 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   };
   navigation {
     display-name = "Navigation";
-    // tap-dance doesn't work with layer-hold
-    // unless we use non-momentary layers?
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-//       &kp LSHIFT &kp LALT  &kp LCTRL    &kp HOME  &kp UP     &kp END
-//       MM_VD     MM_VU      &mo L_NAV    &kp LEFT  &kp DOWN   &kp RIGHT
-//       E_PRINT   NN_PREV    NN_NEXT      &kp PG_DN &kp PG_UP  TODO
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+      &kp LSHIFT &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
+      MM_VD     MM_VU      &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
+      E_PRINT   NN_PREV    NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
       
     >;
   };
