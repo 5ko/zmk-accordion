@@ -45,6 +45,19 @@
 #define B5 16
 #define B6 17
 
+#define L_ALF1 0
+#define L_ALF2 1
+#define L_NUM  2
+#define L_PAR  3
+#define L_NAV  4
+#define L_MSE  5
+#define L_FUN  6
+#define L_BLE  7
+
+// TODO: L_BLE, punctuation; accents; edit shortcuts; macro words
+
+
+
 
 // #include "keyabbrev.dtsi"
 #include "characters.conf"
@@ -53,18 +66,105 @@
 // #include "combos.dtsi"
 
 
+// ZMK_COMBO(name, bindings, keypos, layers)
+ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
+
+CB4(BBBX, reflash, &bootloader, ALL_LEFT)
+
+
 / { keymap { compatible = "zmk,keymap";
-  left {
-    display-name = "Base";
+  alpha1 {
+    display-name = "Alpha 1";
     // tap-dance doesn't work with layer-hold
     // unless we use non-momentary layers?
     bindings = <
-      &kp A  &kp B  &kp C     &kp D  &kp E  &kp F
-      &kp G  &kp H  &kp I     &kp J  &kp K  &kp L
-      &kp M  &kp N  &kp O     &kp P  &kp Q  &kp R
+      &mt LSHIFT L   &mt LALT  D  &mt LCTRL C    &mt RCTRL U  &mt LALT O  &mt RSHIFT Y
+      &lt L_PAR  S   &lt L_MSE T  &lt L_NAV R    &kp       A  &kp E       &kp I
+      &lt L_NUM  N   &kp SPACE    &kp BSPC       &mo L_ALF2   &kp ENTER   &lt L_FUN  H
       
     >;
   };
+  alpha2 {
+    display-name = "Alpha 2";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &mt LSHIFT P  &mt LALT B  &mt LCTRL V    &mt RCTRL F  &mt LALT Q  &mt RSHIFT Z
+      &kp G         &kp M       &kp W          &kp X        &kp K       &kp J
+      TODO          TODO        TODO           TODO         TODO        TODO 
+    >;
+  };
+  numbers {
+    display-name = "Numbers";
+    bindings = <
+      &kp MINUS  &kp PLUS  &kp DOT   &kp M4  &kp N5  &kp N6
+      &kp N7     &kp N8    &kp N9    &kp N1  &kp N2  &kp M3
+      &mo L_NUM  __        &kp DEL   TODO    __      &kp N0
+      
+    >;
+  };
+  
+  parentheses {
+    display-name = "Parentheses";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      MAYBE      &kp RBRC  &kp LBRC   &kp RPAR  &kp LPAR  &kp COLON
+      &mo L_PAR  &kp LT    &kp GT     &kp RBRC  &kp LBRC  &kp SEMI
+      TODO       TODO      TODO       TODO      TODO      TODO 
+    >;
+  };
+  navigation {
+    display-name = "Navigation";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &kp LSHIFT &kp LALT  &kp LCTRL    &kp HOME  &kp UP     &kp END
+      MM_VD     MM_VU      &mo L_NAV    &kp LEFT  &kp DOWN   &kp RIGHT
+      E_PRINT   NN_PREV    NN_NEXT      &kp PG_DN &kp PG_UP  TODO
+      
+    >;
+  };
+  
+  mouse {
+    display-name = "Mouse";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_ML    M_B2
+      M_B2        &mo L_MSE  M_B1        M_MU   M_MR    M_MD
+      M_SL        M_B3       TODO        M_SD   M_SU    M_SR 
+      
+      
+    >;
+  };
+  
+  
+  functions {
+    display-name = "Functions";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &mt LSHIFT F4  &mt LALT  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
+      &kp F1         &kp F2    &kp F3          &kp F7         &kp F8        &kp F9
+      XX             XX        XX              XX             XX            &mo L_FUN  
+      
+    >;
+  };
+  
+  
+  bluetooth {
+    display-name = "Bluetooth";
+    // tap-dance doesn't work with layer-hold
+    // unless we use non-momentary layers?
+    bindings = <
+      &kp F4  &kp F5  &kp F6     &kp F10  &kp F11  &kp F12
+      &kp F1  &kp F2  &kp F3     &kp F7   &kp F8   &kp F9
+      XX      XX      XX         XX       XX       &mo L_FUN
+      
+    >;
+  };
+  
   
 
 }; };
