@@ -54,8 +54,8 @@
 #define L_FUN  6
 #define L_BLE  7
 
-// TODO: L_BLE, punctuation; accents; edit shortcuts; macro words
-
+// TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
+// TODO  RALT CAPS LGUI
 
 
 
@@ -66,7 +66,41 @@
 // #include "combos.dtsi"
 
 
+/ { behaviors {
+  
+  hm: homerow_mods {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <300>;
+    quick-tap-ms = <250>;
+    require-prior-idle-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&kp>, <&kp>;
+  };
+  
+  hl: homerow_layers {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <300>;
+    quick-tap-ms = <250>;
+    require-prior-idle-ms = <125>;
+    flavor = "tap-preferred";
+    bindings = <&mo>, <&kp>;
+    retro-tap;
+  };
+  
+  
+}; };
+
+
 // ZMK_COMBO(name, bindings, keypos, layers)
+
+// Combos L_NAV
+ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
+
+
+
+// Combos Base layer
 ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
 
 
@@ -74,16 +108,16 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      &mt LSHIFT L   &mt LALT  D  &mt LCTRL C    &mt RCTRL U  &mt LALT O  &mt RSHIFT Y
-      &lt L_PAR  S   &lt L_MSE T  &lt L_NAV R    &kp       A  &kp E       &kp I
-      &lt L_NUM  N   &kp SPACE    &kp BSPC       &mo L_ALF2   &kp ENTER   &lt L_FUN  H
+      &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
+      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
+      &hl L_NUM  N   &kp SPACE    &kp BSPC       &mo L_ALF2   &kp ENTER   &hl L_FUN  H
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &mt LSHIFT P  &mt LALT B  &mt LCTRL V    &mt RCTRL F  &mt LALT Q  &mt RSHIFT Z
+      &hm LSHIFT P  &hm LALT B  &hm LCTRL V    &hm RCTRL F  &hm LALT Q  &hm RSHIFT Z
       &kp G         &kp M       &kp W          &kp X        &kp K       &kp J
       TODO          TODO        TODO           TODO         TODO        TODO 
     >;
@@ -91,9 +125,9 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   numbers {
     display-name = "Numbers";
     bindings = <
-      &kp STAR    &kp MINUS      &kp PLUS    &kp N4     &kp N5   &kp N6
-      &kp N7      &kp N8         &kp N9      &kp N1     &kp N2   &kp M3
-      &mo L_NUM   &mt BSLH FSLH  &kp DEL     &kp EQUAL  &kp N0   &kp DOT 
+      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT N5   &hm LSHIFT N6
+      &kp N7            &kp N8           &kp N9            &kp N1         &kp N2        &kp M3
+      &mo L_NUM         &mt BSLH FSLH    &kp DEL           &kp EQUAL      &kp N0        &kp DOT 
       
     >;
   };
@@ -102,10 +136,11 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
     display-name = "Parentheses";
     bindings = <
       MAYBE      &kp LBRC  &kp RBRC   &kp LPAR  &kp RPAR  &kp COLON
-      &mo L_PAR  &kp LT    &kp GT     &kp RBKT  &kp LBKT  &kp SEMI
+      &mo L_PAR  &kp LT    &kp GT     &kp LBKT  &kp RBKT  &kp SEMI
       TODO       TODO      TODO       TODO      TODO      TODO 
     >;
   };
+  
   navigation {
     display-name = "Navigation";
     bindings = <
@@ -126,14 +161,11 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
       
     >;
   };
-  
+
   
   functions {
     display-name = "Functions";
     bindings = <
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
-//       TODO  TODO  TODO    TODO  TODO  TODO 
       &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
       &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
       XX             XX           XX              XX             XX            &mo L_FUN  
