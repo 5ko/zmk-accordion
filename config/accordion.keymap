@@ -69,8 +69,6 @@
 // ZMK_COMBO(name, bindings, keypos, layers)
 ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
 
-CB4(BBBX, reflash, &bootloader, ALL_LEFT)
-
 
 / { keymap { compatible = "zmk,keymap";
   alpha1 {
