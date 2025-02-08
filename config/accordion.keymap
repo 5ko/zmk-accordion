@@ -119,9 +119,9 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   mouse {
     display-name = "Mouse";
     bindings = <
-      &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_ML    M_B2
-      M_B2        &mo L_MSE  M_B1        M_MU   M_MR    M_MD
-      M_SL        M_B3       &kp LALT    M_SD   M_SU    M_SR 
+      &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_MU    M_B2
+      M_B2        &mo L_MSE  M_B1        M_ML   M_MD    M_MR
+      M_SL        M_B3       &kp LALT    M_SU   M_SD    M_SR 
       
       
     >;
