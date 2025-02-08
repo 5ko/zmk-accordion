@@ -1,0 +1,18 @@
+/*
+ * Copyright (c) 2025 Petko Yotov pmwiki.org/petko
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 6    // default: 10
+
+// HOST_OS: Linux=1, MacOS=2
+#define HOST_OS 1
+
+// #include <behaviors.dtsi>
+// #include <dt-bindings/zmk/keys.h>
+
+
+#include "../../../accordion.keymap"
+
