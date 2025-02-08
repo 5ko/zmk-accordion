@@ -95,13 +95,13 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   numbers {
     display-name = "Numbers";
     bindings = <
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
-      TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
+//       TODO  TODO  TODO    TODO  TODO  TODO 
       
-//       &kp STAR    &kp MINUS      &kp PLUS    &kp N4     &kp N5   &kp N6
-//       &kp N7      &kp N8         &kp N9      &kp N1     &kp N2   &kp M3
-//       &mo L_NUM   &mt BSLH FSLH  &kp DEL     &kp EQUAL  &kp N0   &kp DOT 
+      &kp STAR    &kp MINUS      &kp PLUS    &kp N4     &kp N5   &kp N6
+      &kp N7      &kp N8         &kp N9      &kp N1     &kp N2   &kp M3
+      &mo L_NUM   &mt BSLH FSLH  &kp DEL     &kp EQUAL  &kp N0   &kp DOT 
       
     >;
   };
