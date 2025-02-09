@@ -173,9 +173,9 @@ ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
   numbers {
     display-name = "Numbers";
     bindings = <
-      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT  N5   &hm RSHIFT N6
-      &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2  N2   &kp N3
-      &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGRE N0   &mt COMMA DOT
+      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT   N5   &hm RSHIFT N6
+      &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2   N2   &kp N3
+      &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGREE N0   &mt COMMA DOT
       
     >;
   };
@@ -185,7 +185,7 @@ ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
     bindings = <
       MAYBE      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &kp COLON
       &mo L_PAR  &kp LT    &kp GT     &kp LPAR  &kp RPAR  &kp SEMI
-      XX         TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
+      TODO       TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
     >;
   };
   
