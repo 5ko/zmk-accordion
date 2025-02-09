@@ -6,8 +6,8 @@
 
 
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000  // default: 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -45,8 +45,8 @@
 #define B5 16
 #define B6 17
 
-#define L_ALF1 0
-#define L_ALF2 1
+#define L_AL1 0
+#define L_AL2 1
 #define L_NUM  2
 #define L_PAR  3
 #define L_NAV  4
@@ -63,17 +63,13 @@
 // #include "combos.dtsi"
 
 &mmv {
-//     x-input-code = <INPUT_REL_X>;
-//     y-input-code = <INPUT_REL_Y>;
-    time-to-max-speed-ms = <0>;
-    acceleration-exponent = <0>;
+  time-to-max-speed-ms = <0>;
+  acceleration-exponent = <0>;
 };
 
 &msc {
-//     x-input-code = <INPUT_REL_HWHEEL>;
-//     y-input-code = <INPUT_REL_WHEEL>;
-    time-to-max-speed-ms = <0>;
-    acceleration-exponent = <0>;
+  time-to-max-speed-ms = <0>;
+  acceleration-exponent = <0>;
 };
 
 
@@ -100,6 +96,13 @@
     retro-tap;
   };
   
+  bspc_del: backspace_delete {
+    compatible = "zmk,behavior-mod-morph";
+    #binding-cells = <0>;
+    bindings = <&kp BACKSPACE>, <&kp DELETE>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <(MOD_LCTL|MOD_RCTL)>;
+  };
   
 }; };
 
@@ -110,12 +113,43 @@
 ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
 
 
+// Combos L_MSE
+ZMK_COMBO(mmid, M_B2, T4 T6, L_MSE)
+ZMK_COMBO(mbck, M_B4, T4 T5, L_MSE)
+ZMK_COMBO(mfwd, M_B5, T5 T6, L_MSE)
+
+// Combos L_PAR, used for dev like -> => </>
+ZMK_COMBO(p_dash, MINUS, M4 M5, L_PAR)
+ZMK_COMBO(p_eq  , EQUAL, M5 M6, L_PAR)
+ZMK_COMBO(p_slsh, FSLH , M4 T5, L_PAR)
+
+// combos L_NUM
+ZMK_COMBO(n_euro, &kp EURO, M4 M5   , L_NUM)
+ZMK_COMBO(n_gbp , &kp GBP ,    M5 M6, L_NUM)
+
 
 // Combos Base layer
-ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
+ZMK_COMBO(escape , &kp ESC        , M1 M2   , L_AL1)
+ZMK_COMBO(tabs   , &mt LS(TAB) TAB,    M2 M3, L_AL1)
+ZMK_COMBO(caps   , &kp CAPS       ,    M2 M3, L_AL1)
+ZMK_COMBO(ralt   , &sk RALT       ,    T5 M6, L_AL1)
+ZMK_COMBO(gui    , &sk LGUI       , M1 M2 M3, L_AL1)
+
+
+ZMK_COMBO(reflash, &bootloader, T2 T3 M2 M3, L_AL1)
+ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
+
 
 // TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
-// TODO  RALT CAPS LGUI7*
+// TODO  RALT CAPS LGUI E_PRINT
+
+// Done: ()[]{}:;
+// Maybe: +-=;:
+// dead grave tilde acute circ dier macron?
+// `~!@#$£€%^&*_¥+=°'"\|,./?
+// ¡÷×«»“”¶¿
+
+// !? ,; .: "' /\
 
 
 / { keymap { compatible = "zmk,keymap";
@@ -124,7 +158,7 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
     bindings = <
       &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
       &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
-      &hl L_NUM  N   &kp SPACE    &kp BSPC       &kp ENTER  &sl L_ALF2    &hl L_FUN  H
+      &hl L_NUM  N   &kp SPACE    &bspc_del      &kp ENTER    &sl L_AL2   &hl L_FUN  H
       
     >;
   };
@@ -139,9 +173,9 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   numbers {
     display-name = "Numbers";
     bindings = <
-      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT N5   &hm LSHIFT N6
-      &kp N7            &kp N8           &kp N9            &kp N1         &kp N2        &kp M3
-      &mo L_NUM         &mt BSLH FSLH    &kp DEL           &kp EQUAL      &kp N0        &kp DOT 
+      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT  N5   &hm RSHIFT N6
+      &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2  N2   &kp N3
+      &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGRE N0   &mt COMMA DOT
       
     >;
   };
@@ -149,18 +183,18 @@ ZMK_COMBO(bootloader, &bootloader, T2 T3 M2 M3, L_ALF1)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC   &kp LPAR  &kp RPAR  &kp COLON
-      &mo L_PAR  &kp LT    &kp GT     &kp LBKT  &kp RBKT  &kp SEMI
-      TODO       TODO      TODO       TODO      TODO      TODO 
+      MAYBE      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &kp COLON
+      &mo L_PAR  &kp LT    &kp GT     &kp LPAR  &kp RPAR  &kp SEMI
+      XX         TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
     >;
   };
   
   navigation {
-    display-name = "Navigation";
+    display-name = "Navigation+Media";
     bindings = <
-      &kp LSHIFT &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
-      MM_VD     MM_VU      &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
-      E_PRINT   NN_PREV    NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
+      &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
+      MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
+      E_PRINT     NN_PREV   NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
       
     >;
   };
