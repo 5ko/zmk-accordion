@@ -131,7 +131,7 @@ ZMK_COMBO(n_gbp , &kp GBP ,    M5 M6, L_NUM)
 // Combos Base layer
 ZMK_COMBO(escape , &kp ESC        , M1 M2   , L_AL1)
 ZMK_COMBO(tabs   , &mt LS(TAB) TAB,    M2 M3, L_AL1)
-ZMK_COMBO(caps   , &kp CAPS       ,    M2 M3, L_AL1)
+ZMK_COMBO(caps   , &kp CAPS       , M1    M3, L_AL1)
 ZMK_COMBO(ralt   , &sk RALT       ,    T5 M6, L_AL1)
 ZMK_COMBO(gui    , &sk LGUI       , M1 M2 M3, L_AL1)
 
@@ -143,13 +143,13 @@ ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
 // TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
 // TODO  RALT CAPS LGUI E_PRINT
 
-// Done: ()[]{}:;
+// Done: ()[]{}:;°
 // Maybe: +-=;:
 // dead grave tilde acute circ dier macron?
-// `~!@#$£€%^&*_¥+=°'"\|,./?
+// `~!@#$£€%^&*_¥+='"\|,./?
 // ¡÷×«»“”¶¿
 
-// !? ,; .: "' /\
+// !? ,; .: "' /\ #* $€£ +- =
 
 
 / { keymap { compatible = "zmk,keymap";
