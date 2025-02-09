@@ -119,9 +119,9 @@ ZMK_COMBO(mbck, M_B4, T4 T5, L_MSE)
 ZMK_COMBO(mfwd, M_B5, T5 T6, L_MSE)
 
 // Combos L_PAR, used for dev like -> => </>
-ZMK_COMBO(p_dash, MINUS, M4 M5, L_PAR)
-ZMK_COMBO(p_eq  , EQUAL, M5 M6, L_PAR)
-ZMK_COMBO(p_slsh, FSLH , M4 T5, L_PAR)
+ZMK_COMBO(p_dash, &kp MINUS, M4 M5   , L_PAR)
+ZMK_COMBO(p_eq  , &kp EQUAL,    M5 M6, L_PAR)
+ZMK_COMBO(p_slsh, &kp FSLH , M4 T5   , L_PAR)
 
 // combos L_NUM
 ZMK_COMBO(n_euro, &kp EURO, M4 M5   , L_NUM)
