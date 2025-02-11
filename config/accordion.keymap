@@ -19,6 +19,34 @@
 #define HOST_OS 1
 #include "zmk-helpers/helper.h"
 
+
+
+// Delay for combo
+#undef COMBO_TERM
+#define COMBO_TERM 250
+
+// #define NAV_TAP_TERM 300
+// #define TAPDANCE_2_TERM 250
+// #define TAPDANCE_3_TERM 350
+#define HOLDTAP_TERM 350
+#define HOLDTAP_LAYER_TERM 350
+#define TIMEOUT_STICKY_LEADER_KEY  2000
+
+&sk {
+  release-after-ms = <TIMEOUT_STICKY_LEADER_KEY>;
+  quick-release;
+};
+&sl { 
+  release-after-ms = <TIMEOUT_STICKY_LEADER_KEY>;
+};
+&mt {
+  tapping-term-ms = <HOLDTAP_TERM>;
+};
+&lt {
+  tapping-term-ms = <HOLDTAP_LAYER_TERM>;
+};
+
+
 // Switches/keys Top to Bottom, Left to Right
 #define T1 0
 #define T2 1
@@ -47,12 +75,12 @@
 
 #define L_AL1 0
 #define L_AL2 1
-#define L_NUM  2
-#define L_PAR  3
-#define L_NAV  4
-#define L_MSE  5
-#define L_FUN  6
-#define L_BLE  7
+#define L_NUM 2
+#define L_PAR 3
+#define L_NAV 4
+#define L_MSE 5
+#define L_FUN 6
+#define L_BLE 7
 
 
 
@@ -71,6 +99,8 @@
   time-to-max-speed-ms = <0>;
   acceleration-exponent = <0>;
 };
+
+
 
 
 / { behaviors {
@@ -137,15 +167,15 @@ ZMK_COMBO(ralt   , &sk RALT       , T4    T6, L_AL1)
 ZMK_COMBO(bksp   , &kp BACKSPACE  , T4 T5   , L_AL1)
 ZMK_COMBO(dele   , &kp DELETE     ,    T5 T6, L_AL1)
 
-ZMK_COMBO(left   , &kp LEFT       , M4 M5   , L_AL1)
-ZMK_COMBO(rght   , &kp RIGHT      ,    M5 M6, L_AL1)
+ZMK_COMBO(left   , &mt HOME LEFT  , M4 M5   , L_AL1)
+ZMK_COMBO(rght   , &mt END  RIGHT ,    M5 M6, L_AL1)
 ZMK_COMBO(up     , &kp UP         , M4    M6, L_AL1)
 ZMK_COMBO(down   , &kp DOWN       , M4 M5 M6, L_AL1)
 
 
 
 ZMK_COMBO(reflash , &bootloader, T2 T3 M2 M3, L_AL1)
-ZMK_COMBO(blutooth, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
+ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
 
 
 // TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
