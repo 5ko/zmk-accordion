@@ -101,7 +101,7 @@
     #binding-cells = <0>;
     bindings = <&kp BACKSPACE>, <&kp DELETE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
-    keep-mods = <(MOD_LCTL|MOD_RCTL)>;
+    keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_RSFT)>;
   };
   
 }; };
@@ -109,35 +109,35 @@
 
 // ZMK_COMBO(name, bindings, keypos, layers)
 
-// Combos L_NAV
-ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
-
-
-// Combos L_MSE
-ZMK_COMBO(mmid, M_B2, T4 T6, L_MSE)
-ZMK_COMBO(mbck, M_B4, T4 T5, L_MSE)
-ZMK_COMBO(mfwd, M_B5, T5 T6, L_MSE)
-
-// Combos L_PAR, used for dev like -> => </>
-ZMK_COMBO(p_dash, &kp MINUS, M4 M5   , L_PAR)
-ZMK_COMBO(p_eq  , &kp EQUAL,    M5 M6, L_PAR)
-ZMK_COMBO(p_slsh, &kp FSLH , M4 T5   , L_PAR)
-
-// combos L_NUM
-ZMK_COMBO(n_euro, &kp EURO, M4 M5   , L_NUM)
-ZMK_COMBO(n_gbp , &kp GBP ,    M5 M6, L_NUM)
-
-
-// Combos Base layer
-ZMK_COMBO(escape , &kp ESC        , M1 M2   , L_AL1)
-ZMK_COMBO(tabs   , &mt LS(TAB) TAB,    M2 M3, L_AL1)
-ZMK_COMBO(caps   , &kp CAPS       , M1    M3, L_AL1)
-ZMK_COMBO(ralt   , &sk RALT       ,    T5 M6, L_AL1)
-ZMK_COMBO(gui    , &sk LGUI       , M1 M2 M3, L_AL1)
+// // Combos L_NAV
+// ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
+// 
+// 
+// // Combos L_MSE
+// ZMK_COMBO(mmid, M_B2, T4 T6, L_MSE)
+// ZMK_COMBO(mbck, M_B4, T4 T5, L_MSE)
+// ZMK_COMBO(mfwd, M_B5, T5 T6, L_MSE)
+// 
+// // Combos L_PAR, used for dev like -> => </>
+// ZMK_COMBO(p_dash, &kp MINUS, M4 M5   , L_PAR)
+// ZMK_COMBO(p_eq  , &kp EQUAL,    M5 M6, L_PAR)
+// ZMK_COMBO(p_slsh, &kp FSLH , M4 T5   , L_PAR)
+// 
+// // combos L_NUM
+// ZMK_COMBO(n_euro, &kp EURO, M4 M5   , L_NUM)
+// ZMK_COMBO(n_gbp , &kp GBP ,    M5 M6, L_NUM)
+// 
+// 
+// // Combos Base layer
+// ZMK_COMBO(escape , &kp ESC        , M1 M2   , L_AL1)
+// ZMK_COMBO(tabs   , &mt LS(TAB) TAB,    M2 M3, L_AL1)
+// ZMK_COMBO(caps   , &kp CAPS       , M1    M3, L_AL1)
+// ZMK_COMBO(ralt   , &sk RALT       ,    T5 M6, L_AL1)
+// ZMK_COMBO(gui    , &sk LGUI       , M1 M2 M3, L_AL1)
 
 
 ZMK_COMBO(reflash, &bootloader, T2 T3 M2 M3, L_AL1)
-ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
+// ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
 
 
 // TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
@@ -151,14 +151,13 @@ ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
 
 // !? ,; .: "' /\ #* $€£ +- =
 
-
 / { keymap { compatible = "zmk,keymap";
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
-      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
-      &hl L_NUM  N   &kp SPACE    &bspc_del      &kp ENTER    &sl L_AL2   &hl L_FUN  H
+      &kp L   &kp D  &kp C    &kp U  &kp O  &kp Y
+      &kp S   &kp T  &kp R    &kp A  &kp E  &kp I
+      &kp N   &kp SPACE    &bspc_del      &kp ENTER    &sl L_AL2   &kp H
       
     >;
   };
@@ -170,69 +169,89 @@ ZMK_COMBO(blututh, &sl L_BLE  , T1 T3 M1 M3, L_AL1)
       TODO          TODO        TODO           TODO         TODO        TODO 
     >;
   };
-  numbers {
-    display-name = "Numbers";
-    bindings = <
-      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT   N5   &hm RSHIFT N6
-      &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2   N2   &kp N3
-      &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGREE N0   &mt COMMA DOT
-      
-    >;
-  };
-  
-  parentheses {
-    display-name = "Parentheses";
-    bindings = <
-      MAYBE      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &kp COLON
-      &mo L_PAR  &kp LT    &kp GT     &kp LPAR  &kp RPAR  &kp SEMI
-      TODO       TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
-    >;
-  };
-  
-  navigation {
-    display-name = "Navigation+Media";
-    bindings = <
-      &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
-      MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
-      E_PRINT     NN_PREV   NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
-      
-    >;
-  };
-  
-  mouse {
-    display-name = "Mouse";
-    bindings = <
-      &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_MU    M_B2
-      M_B2        &mo L_MSE  M_B1        M_ML   M_MD    M_MR
-      M_SL        M_B3       &kp LALT    M_SU   M_SD    M_SR 
-      
-      
-    >;
-  };
-
-  
-  functions {
-    display-name = "Functions";
-    bindings = <
-      &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
-      &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
-      XX             XX           XX              XX             XX            &mo L_FUN  
-      
-    >;
-  };
-  
-  
-  bluetooth {
-    display-name = "Bluetooth";
-    bindings = <
-      TODO  TODO  &out OUT_USB    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
-      TODO  TODO  &out OUT_BLE    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-      TODO  TODO  TODO            TODO          TODO          TODO 
-      // TODO: &bt BT_CLR
-    >;
-  };
-  
-  
-
 }; };
+
+// / { keymap { compatible = "zmk,keymap";
+//   alpha1 {
+//     display-name = "Alpha 1";
+//     bindings = <
+//       &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
+//       &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
+//       &hl L_NUM  N   &kp SPACE    &bspc_del      &kp ENTER    &sl L_AL2   &hl L_FUN  H
+//       
+//     >;
+//   };
+//   alpha2 {
+//     display-name = "Alpha 2";
+//     bindings = <
+//       &hm LSHIFT P  &hm LALT B  &hm LCTRL V    &hm RCTRL F  &hm LALT Q  &hm RSHIFT Z
+//       &kp G         &kp M       &kp W          &kp X        &kp K       &kp J
+//       TODO          TODO        TODO           TODO         TODO        TODO 
+//     >;
+//   };
+//   numbers {
+//     display-name = "Numbers";
+//     bindings = <
+//       &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT   N5   &hm RSHIFT N6
+//       &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2   N2   &kp N3
+//       &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGREE N0   &mt COMMA DOT
+//       
+//     >;
+//   };
+//   
+//   parentheses {
+//     display-name = "Parentheses";
+//     bindings = <
+//       MAYBE      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &kp COLON
+//       &mo L_PAR  &kp LT    &kp GT     &kp LPAR  &kp RPAR  &kp SEMI
+//       TODO       TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
+//     >;
+//   };
+//   
+//   navigation {
+//     display-name = "Navigation+Media";
+//     bindings = <
+//       &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
+//       MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
+//       E_PRINT     NN_PREV   NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
+//       
+//     >;
+//   };
+//   
+//   mouse {
+//     display-name = "Mouse";
+//     bindings = <
+//       &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_MU    M_B2
+//       M_B2        &mo L_MSE  M_B1        M_ML   M_MD    M_MR
+//       M_SL        M_B3       &kp LALT    M_SU   M_SD    M_SR 
+//       
+//       
+//     >;
+//   };
+// 
+//   
+//   functions {
+//     display-name = "Functions";
+//     bindings = <
+//       &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
+//       &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
+//       XX             XX           XX              XX             XX            &mo L_FUN  
+//       
+//     >;
+//   };
+//   
+//   
+//   bluetooth {
+//     display-name = "Bluetooth";
+//     bindings = <
+//       TODO  TODO  &out OUT_USB    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
+//       TODO  TODO  &out OUT_BLE    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+//       TODO  TODO  TODO            TODO          TODO          TODO 
+//       // TODO: &bt BT_CLR
+//     >;
+//   };
+//   
+//   
+// 
+// }; };
 
