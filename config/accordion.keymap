@@ -208,17 +208,17 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(L)         HLA(D)       HLC(C)         HRC(U)     HLA(O)  HRS(Y)
+      HLS(C)         HLA(L)       HLC(D)         HRC(U)     HLA(O)  HRS(M)
       &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp A      &kp E   &kp I
-      &hl L_NUM  N                &kp SPACE      &sl L_AL2          &hl L_FUN H
+      &hl L_NUM  R                &kp SPACE      &sl L_AL2          &hl L_FUN I
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      HLS(P)  HLA(B)  HLC(V)   HRC(F)  HLA(Q)  HRS(Z)
-      &kp G   &kp M   &kp W    &kp X   &kp K   &kp J
+      HLS(B)  HLA(P)  HLC(V)   HRC(F)  HLA(Q)  HRS(Y)
+      &kp J   &kp G   &kp K    &kp X   &kp Z   &kp W
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
@@ -226,7 +226,7 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     display-name = "Numbers";
     bindings = <
       HLS(STAR)  HLA(MINUS)  HLC(PLUS)        HRC(N4)         HLA(N5)       HRS(N6)
-      &kp N7     &kp N8      &kp N9           &kp N1          &mt SUP2 N2   &kp N3
+      &kp N7     &kp N8      &kp N9           &kp N1          &mt SUP2 N2   &mt FSLH N3
       &mo L_NUM              &mt BSLH FSLH    &mt DEGREE N0                 &mt COMMA DOT
       
     >;
@@ -235,18 +235,18 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC   &kp RBRC    &kp LBKT  &kp RBKT  &kp COLON
-      &mo L_PAR  &kp LT     &kp GT      &kp LPAR  &kp RPAR  &kp SEMI
-      TODO                  &kp GRAVE   &kp DQT             &kp SQT 
+      MAYBE      &kp LBRC  &kp RBRC    &kp LT    &kp FSLH  &kp GT
+      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR  &kp RPAR  &kp SEMI
+      TODO                 &kp GRAVE   &kp DQT             &kp SQT 
     >;
   };
   
   navigation {
     display-name = "Navigation+Media";
     bindings = <
-      &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
-      MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
-      NN_PREV               NN_NEXT        &kp PG_UP             &kp PG_DN 
+      &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP    &kp END
+      MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN  &kp RIGHT
+      NN_PREV               NN_NEXT        &kp PG_UP            &kp PG_DN 
       
     >;
   };
@@ -266,9 +266,9 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   functions {
     display-name = "Functions";
     bindings = <
-      &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
-      &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
-      XX                          XX              XX                           &mo L_FUN  
+      HLS(F4)  HLA(F5)  HLC(F6)   HRC(F10)  HLA(F11)  HRS(F12)
+      &kp F1   &kp F2   &kp F3    &kp F7    &kp F8    &kp F9
+      XX                XX        XX                  &mo L_FUN  
       
     >;
   };
