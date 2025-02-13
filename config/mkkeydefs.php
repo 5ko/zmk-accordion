@@ -69,7 +69,7 @@ for($i=2; $i<64; $i++) {
   
 }
 
-$out = preg_replace('/ X(\\d)/', ' T$1 B$1', $out);
+$out = preg_replace('/ X(\\d)/', ' T$1 M$1', $out);
 
 print_r($out);
 

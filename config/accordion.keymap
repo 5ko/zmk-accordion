@@ -152,42 +152,44 @@
   
   
 // Combos L_NAV
-ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
+
+CB4(LBB_, mute, &mt K_PP K_MUTE, L_NAV)
 
 
 // Combos L_MSE
-ZMK_COMBO(mmid, M_B3, T4    T6, L_MSE)
-ZMK_COMBO(mbck, M_B4, T4 T5   , L_MSE)
-ZMK_COMBO(mfwd, M_B5,    T5 T6, L_MSE)
+CB4(RT_T, mmid, M_B3, L_MSE)
+CB4(RTT_, mbck, M_B4, L_MSE)
+CB4(R_TT, mfwd, M_B5, L_MSE)
 
 // Combos L_PAR, used for dev like -> => </>
-ZMK_COMBO(p_dash, &kp MINUS, M4 M5   , L_PAR)
-ZMK_COMBO(p_eq  , &kp EQUAL,    M5 M6, L_PAR)
-ZMK_COMBO(p_slsh, &kp FSLH , M4 T5   , L_PAR)
+CB4(RBB_, p_dash, &kp MINUS, L_PAR)
+CB4(R_BB, p_eq  , &kp EQUAL, L_PAR)
+CB4(RBT_, p_slsh, &kp FSLH , L_PAR)
 
 // combos L_NUM
-ZMK_COMBO(n_euro, &kp EURO, M4 M5   , L_NUM)
-ZMK_COMBO(n_gbp , &kp GBP ,    M5 M6, L_NUM)
+CB4(RBB_, n_euro, &kp EURO, L_NUM)
+CB4(R_BB, n_gbp , &kp GBP , L_NUM)
 
 
 // Combos Base layer
-ZMK_COMBO(escape , &kp ESC        , T1 T2   , L_AL1)
-ZMK_COMBO(tabs   , &mt LS(TAB) TAB,    T2 T3, L_AL1)
-ZMK_COMBO(caps   , &kp CAPS       , T1    T3, L_AL1)
-ZMK_COMBO(gui    , &sk LGUI       , T1 T2 T3, L_AL1)
-ZMK_COMBO(ralt   , &sk RALT       , T4    T6, L_AL1)
-ZMK_COMBO(bksp   , &kp BACKSPACE  , T4 T5   , L_AL1)
-ZMK_COMBO(dele   , &kp DELETE     ,    T5 T6, L_AL1)
+CB4(LTT_, esca, &kp ESC        , L_AL1)
+CB4(L_TT, tabs, &mt LS(TAB) TAB, L_AL1)
+CB4(LT_T, caps, &kp CAPS       , L_AL1)
+CB4(LTTT, lgui, &sk LGUI       , L_AL1)
+CB4(RTT_, bksp, &kp BACKSPACE  , L_AL1)
+CB4(RT_T, dele, &kp DELETE     , L_AL1)
+CB4(RTTT, rgui, &sk RGUI       , L_AL1)
+CB4(RT_T, ralt, &sk RALT       , L_AL1)
 
-ZMK_COMBO(left   , &mt HOME LEFT  , M4 M5   , L_AL1)
-ZMK_COMBO(rght   , &mt END  RIGHT ,    M5 M6, L_AL1)
-ZMK_COMBO(up     , &kp UP         , M4    M6, L_AL1)
-ZMK_COMBO(down   , &kp DOWN       , M4 M5 M6, L_AL1)
+CB4(RBB_, left, &mt HOME LEFT  , L_AL1)
+CB4(R_BB, rght, &mt END  RIGHT , L_AL1)
+CB4(RB_B, up  , &kp UP         , L_AL1)
+CB4(RBBB, down, &kp DOWN       , L_AL1)
 
 
 
-ZMK_COMBO(reflash , &bootloader, T2 T3 M2 M3, L_AL1)
-ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
+CB4(L_XX, reflash , &bootloader, L_AL1)
+CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 
 
 // TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
@@ -208,8 +210,8 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
     display-name = "Alpha 1";
     bindings = <
       HLS(L)         HLA(D)       HLC(C)         HRC(U)     HLA(O)  HRS(Y)
-      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp     A  &kp      E  &kp        I
-      &hl L_NUM  N                &kp SPACE      &sl L_AL2                &hl L_FUN  H
+      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp A      &kp E   &kp I
+      &hl L_NUM  N                &kp SPACE      &sl L_AL2          &hl L_FUN H
       
     >;
   };
