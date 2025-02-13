@@ -86,9 +86,9 @@
 
 // #include "keyabbrev.dtsi"
 #include "characters.conf"
+#include "combonames.conf"
 // #include "timeouts.dtsi"
 // #include "behaviors.dtsi"
-// #include "combos.dtsi"
 
 &mmv {
   time-to-max-speed-ms = <0>;
@@ -136,9 +136,21 @@
   
 }; };
 
+#define HLA(key) &hm LALT key
+#define HLC(key) &hm LCTRL key
+#define HRC(key) &hm RCTRL key
+#define HLS(key) &hm LSHIFT key
+#define HRS(key) &hm RSHIFT key
 
-// ZMK_COMBO(name, bindings, keypos, layers)
 
+#define CB4(keypos, name, bindings, layers) \
+  ZMK_COMBO(name, bindings, keypos, layers)
+
+
+#define CB3(keypos, name, bindings) \
+  ZMK_COMBO(name, bindings, keypos)
+  
+  
 // Combos L_NAV
 ZMK_COMBO(mute, &mt K_PP K_MUTE, M1 M2, L_NAV)
 
@@ -195,26 +207,26 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      &hm LSHIFT L   &hm LALT  D  &hm LCTRL C    &hm RCTRL U  &hm LALT O  &hm RSHIFT Y
-      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp       A  &kp      E  &kp        I
-      &hl L_NUM  N   &kp SPACE    &bspc_del      &kp ENTER    &sl L_AL2   &hl L_FUN  H
+      HLS(L)         HLA(D)       HLC(C)         HRC(U)     HLA(O)  HRS(Y)
+      &hl L_PAR  S   &hl L_MSE T  &hl L_NAV R    &kp     A  &kp      E  &kp        I
+      &hl L_NUM  N                &kp SPACE      &sl L_AL2                &hl L_FUN  H
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &hm LSHIFT P  &hm LALT B  &hm LCTRL V    &hm RCTRL F  &hm LALT Q  &hm RSHIFT Z
-      &kp G         &kp M       &kp W          &kp X        &kp K       &kp J
-      TODO          TODO        TODO           TODO         TODO        TODO 
+      HLS(P)  HLA(B)  HLC(V)   HRC(F)  HLA(Q)  HRS(Z)
+      &kp G   &kp M   &kp W    &kp X   &kp K   &kp J
+      TODO            TODO     TODO            &kp ENTER    
     >;
   };
   numbers {
     display-name = "Numbers";
     bindings = <
-      &hm LSHIFT STAR   &hm LALT MINUS   &hm LCTRL PLUS    &hm RCTRL N4   &hm LALT   N5   &hm RSHIFT N6
-      &kp N7            &kp N8           &kp N9            &kp N1         &mt SUP2   N2   &kp N3
-      &mo L_NUM         &mt BSLH FSLH    TODO              &kp EQUAL      &mt DEGREE N0   &mt COMMA DOT
+      HLS(STAR)  HLA(MINUS)  HLC(PLUS)        HRC(N4)         HLA(N5)       HRS(N6)
+      &kp N7     &kp N8      &kp N9           &kp N1          &mt SUP2 N2   &kp N3
+      &mo L_NUM              &mt BSLH FSLH    &mt DEGREE N0                 &mt COMMA DOT
       
     >;
   };
@@ -222,9 +234,9 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &kp COLON
-      &mo L_PAR  &kp LT    &kp GT     &kp LPAR  &kp RPAR  &kp SEMI
-      TODO       TODO      TODO       &kp DQT   &kp SQT   &kp GRAVE
+      MAYBE      &kp LBRC   &kp RBRC    &kp LBKT  &kp RBKT  &kp COLON
+      &mo L_PAR  &kp LT     &kp GT      &kp LPAR  &kp RPAR  &kp SEMI
+      TODO                  &kp GRAVE   &kp DQT             &kp SQT 
     >;
   };
   
@@ -233,7 +245,7 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
     bindings = <
       &kp LSHIFT  &kp LALT  &kp LCTRL      &kp HOME   &kp UP     &kp END
       MM_VD       MM_VU     &mo L_NAV      &kp LEFT   &kp DOWN   &kp RIGHT
-      E_PRINT     NN_PREV   NN_NEXT        &kp PG_DN  &kp PG_UP  TODO
+      NN_PREV               NN_NEXT        &kp PG_UP             &kp PG_DN 
       
     >;
   };
@@ -243,7 +255,7 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
     bindings = <
       &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_MU    M_B2
       M_B2        &mo L_MSE  M_B1        M_ML   M_MD    M_MR
-      M_SL        M_B3       &kp LALT    M_SU   M_SD    M_SR 
+      M_SL                   &kp LALT    TODO           M_SR 
       
       
     >;
@@ -255,7 +267,7 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
     bindings = <
       &mt LSHIFT F4  &mt LALT F5  &mt LCTRL F6    &mt RCTRL F10  &mt LALT F11  &mt RSHIFT F12
       &kp F1         &kp F2       &kp F3          &kp F7         &kp F8        &kp F9
-      XX             XX           XX              XX             XX            &mo L_FUN  
+      XX                          XX              XX                           &mo L_FUN  
       
     >;
   };
@@ -266,7 +278,7 @@ ZMK_COMBO(blutooth, &sl L_BLE  , T1 M1 T3 M3, L_AL1)
     bindings = <
       TODO  TODO  &out OUT_USB    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
       TODO  TODO  &out OUT_BLE    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-      TODO  TODO  TODO            TODO          TODO          TODO 
+      TODO        TODO            TODO                        TODO 
       // TODO: &bt BT_CLR
     >;
   };
