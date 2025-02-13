@@ -153,7 +153,7 @@
   
 // Combos L_NAV
 
-CB4(LBB_, mute, &mt K_PP K_MUTE, L_NAV)
+CB4(LMM_, mute, &mt K_PP K_MUTE, L_NAV)
 
 
 // Combos L_MSE
@@ -162,13 +162,13 @@ CB4(RTT_, mbck, M_B4, L_MSE)
 CB4(R_TT, mfwd, M_B5, L_MSE)
 
 // Combos L_PAR, used for dev like -> => </>
-CB4(RBB_, p_dash, &kp MINUS, L_PAR)
-CB4(R_BB, p_eq  , &kp EQUAL, L_PAR)
-CB4(RBT_, p_slsh, &kp FSLH , L_PAR)
+CB4(RMM_, p_dash, &kp MINUS, L_PAR)
+CB4(R_MM, p_eq  , &kp EQUAL, L_PAR)
+CB4(RMT_, p_slsh, &kp FSLH , L_PAR)
 
 // combos L_NUM
-CB4(RBB_, n_euro, &kp EURO, L_NUM)
-CB4(R_BB, n_gbp , &kp GBP , L_NUM)
+CB4(RMM_, n_euro, &kp EURO, L_NUM)
+CB4(R_MM, n_gbp , &kp GBP , L_NUM)
 
 
 // Combos Base layer
@@ -181,10 +181,10 @@ CB4(RT_T, dele, &kp DELETE     , L_AL1)
 CB4(RTTT, rgui, &sk RGUI       , L_AL1)
 CB4(RT_T, ralt, &sk RALT       , L_AL1)
 
-CB4(RBB_, left, &mt HOME LEFT  , L_AL1)
-CB4(R_BB, rght, &mt END  RIGHT , L_AL1)
-CB4(RB_B, up  , &kp UP         , L_AL1)
-CB4(RBBB, down, &kp DOWN       , L_AL1)
+CB4(RMM_, left, &mt HOME LEFT  , L_AL1)
+CB4(R_MM, rght, &mt END  RIGHT , L_AL1)
+CB4(RM_M, up  , &kp UP         , L_AL1)
+CB4(RMMM, down, &kp DOWN       , L_AL1)
 
 
 
