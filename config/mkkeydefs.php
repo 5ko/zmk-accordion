@@ -11,8 +11,8 @@ $out = '/*
  * The combo is described by the character and position, 
  * in columns from left to right, for example _TMB:
     * T = key on the Top row pressed
-    * B = key on the Bottom row pressed
-    * X = both keys (Top and Bottom) rows pressed
+    * M = key on the Middle row pressed
+    * X = both keys (Top and Middle) rows pressed
     * _ = neither top or bottom keys in the column pressed
     * L prefix for a left-hand combo
     * R prefix for a right-hand combo
@@ -27,7 +27,6 @@ $out = '/*
 ';
 
 
-$states = ['_', 'T', 'B', 'X'];
 
 
 
@@ -35,9 +34,9 @@ for($i=2; $i<64; $i++) {
   
   $b = base_convert($i, 10, 4);
   $b = str_repeat('0', 3-strlen($b)) . $b;
-  $n = strtr( $b, '0123', '_TBX');
+  $n = strtr( $b, '0123', '_TMX');
   
-  if(preg_match('/^_*[TB]_*$/', $n)) continue;
+  if(preg_match('/^_*[TM]_*$/', $n)) continue;
 //   echo "$i:$b:$n\n";
   
   $left  = "#define L$n"; 
