@@ -250,9 +250,9 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   symbols {
     display-name = "Symbols";
     bindings = <
-      &mt HASH STAR  &kp PLUS       &kp MINUS     &kp SEMI   &kp COLON  MAYBE
-      &mt BSLH FSLH  &kp CARET      &kp DOLLAR    &kp COMMA  &kp DOT    &mo L_SYM
-      TODO                          TODO          TODO                  &mt EXCL QMARC
+      &mt HASH STAR  &kp PLUS   &kp MINUS     &kp SEMI   &kp COLON  MAYBE
+      &mt BSLH FSLH  &kp CARET  &kp DOLLAR    &kp COMMA  &kp DOT    &mo L_SYM
+      TODO                      TODO          TODO                  &mt EXCL QMARK
     >;
   };
   
@@ -261,9 +261,9 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   accents {
     display-name = "Accents";
     bindings = <
-      &kp C_CDL TODO TODO    MAYBE     &kp D_CRC &kp D_DRS
-      &kp S_SRP TODO TODO    &mo L_ACC &kp D_ACU &kp D_GRV
-      TODO           TODO    TODO                &kp D_TLD
+      &kp C_CDL  TODO  TODO    MAYBE      &kp D_CRC  &kp D_DRS
+      &kp S_SRP  TODO  TODO    &mo L_ACC  &kp D_ACU  &kp D_GRV
+      TODO             TODO    TODO                  &kp D_TLD
     >;
   };
   
