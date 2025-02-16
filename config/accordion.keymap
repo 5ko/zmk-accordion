@@ -77,10 +77,13 @@
 #define L_AL2 1
 #define L_NUM 2
 #define L_PAR 3
-#define L_NAV 4
-#define L_MSE 5
-#define L_FUN 6
-#define L_BLE 7
+#define L_SYM 4 
+#define L_ACC 5
+#define L_EDT 6
+#define L_NAV 7
+#define L_MSE 8
+#define L_FUN 9
+#define L_BLE 10
 
 
 
@@ -110,7 +113,7 @@
     #binding-cells = <2>;
     tapping-term-ms = <300>;
     quick-tap-ms = <250>;
-    require-prior-idle-ms = <125>;
+    require-prior-idle-ms = <250>;
     flavor = "tap-preferred";
     bindings = <&kp>, <&kp>;
   };
@@ -120,7 +123,7 @@
     #binding-cells = <2>;
     tapping-term-ms = <300>;
     quick-tap-ms = <250>;
-    require-prior-idle-ms = <125>;
+    require-prior-idle-ms = <250>;
     flavor = "tap-preferred";
     bindings = <&mo>, <&kp>;
     retro-tap;
@@ -191,16 +194,7 @@ CB4(L_XX, reflash , &bootloader, L_AL1)
 CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 
 
-// TODO  L_BLE, punctuation; accents; edit shortcuts; macro words
-// TODO  RALT CAPS LGUI E_PRINT
-
-// Done: ()[]{}:;°
-// Maybe: +-=;:
-// dead grave tilde acute circ dier macron?
-// `~!@#$£€%^&*_¥+='"\|,./?
-// ¡÷×«»“”¶¿
-
-// !? ,; .: "' /\ #* $€£ +- =
+// ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⓵⓶⓷⓸⓹⓺⓻⓼⓽⓾⓫⓬
 
 
 
@@ -208,26 +202,26 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)        HLA(L)       HLC(D)         HRC(U)     HLA(O)  HRS(M)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &kp A      &kp E   &kp N
-      &hl L_NUM R                &kp SPACE      &sl L_AL2          &hl L_FUN I
+      HLS(C)        HLA(L)       HLC(D)         HRC(U)       HLA(O)       HRS(M)
+      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &mt L_ACC A  &mt L_EDT E  &hl L_SYM N
+      &hl L_NUM R                &kp SPACE      &sl L_AL2                 &hl L_FUN I
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      HLS(B)  HLA(P)  HLC(V)   HRC(F)  HLA(Q)  HRS(Y)
+      &kp B   &kp P   &kp V    &kp F   &kp Q   &kp Y
       &kp J   &kp G   &kp K    &kp X   &kp Z   &kp W
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
   numbers {
-    display-name = "Numbers";
+    display-name = "Numbers+Math";
     bindings = <
-      HLS(STAR)  HLA(MINUS)  HLC(PLUS)        HRC(N4)         HLA(N5)       HRS(N6)
-      &kp N7     &kp N8      &kp N9           &kp N1          &mt SUP2 N2   &mt FSLH N3
-      &mo L_NUM              &mt BSLH FSLH    &mt DEGREE N0                 &mt COMMA DOT
+      &mt FSLH STAR  &mt PERCENT PLUS  &kp MINUS        &mt DOLLAR N4  &mt EURO N5  &mt GBP N6
+      &kp     N7     &kp      N8       &kp        N9    &mt EXCL N1    &mt SUP2 N2  &kp N3
+      &mo L_NUM                        &mt HASH EQUAL   &mt DEGREE N0               &mt COMMA DOT
       
     >;
   };
@@ -235,11 +229,53 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC    &kp LT    &kp FSLH  &kp GT
+      MAYBE      &kp LBRC  &kp RBRC    &kp LT    &kp GT    &kp EQUAL
       &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR  &kp RPAR  &kp SEMI
       TODO                 &kp GRAVE   &kp DQT             &kp SQT 
     >;
   };
+  
+  
+// TODO  punctuation; accents; edit shortcuts; macro words
+// TODO  E_PRINT
+
+// 
+// Maybe: +-=; 
+// maybe not: ¥¡÷×«»“”¶¿
+// dead grave tilde acute circ dier macron?
+  
+//   ~@     &   _  
+
+// !? ,; .:         /\ #* $ +- = @
+  symbols {
+    display-name = "Symbols";
+    bindings = <
+      &mt HASH STAR  &kp PLUS       &kp MINUS     &kp SEMI   &kp COLON  MAYBE
+      &mt BSLH FSLH  &kp CARET      &kp DOLLAR    &kp COMMA  &kp DOT    &mo L_SYM
+      TODO                          TODO          TODO                  &mt EXCL QMARC
+    >;
+  };
+  
+  
+  
+  accents {
+    display-name = "Accents";
+    bindings = <
+      &kp C_CDL TODO TODO    MAYBE     &kp D_CRC &kp D_DRS
+      &kp S_SRP TODO TODO    &mo L_ACC &kp D_ACU &kp D_GRV
+      TODO           TODO    TODO                &kp D_TLD
+    >;
+  };
+  
+  editing {
+    display-name = "Edit shortcuts";
+    bindings = <
+      TODO TODO TODO    TODO TODO      TODO
+      TODO TODO TODO    TODO &mo L_EDT TODO
+      TODO      TODO    TODO           TODO      
+    >;
+  };
+  
   
   navigation {
     display-name = "Navigation+Media";
@@ -250,13 +286,14 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
       
     >;
   };
+   
   
   mouse {
     display-name = "Mouse";
     bindings = <
       &kp LSHIFT  &kp LALT   &kp LCTRL   M_B1   M_MU    M_B2
       M_B2        &mo L_MSE  M_B1        M_ML   M_MD    M_MR
-      M_SL                   &kp LALT    TODO           M_SR 
+      TODO                   &kp LALT    M_SU           M_SD 
       
       
     >;
