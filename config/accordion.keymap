@@ -203,7 +203,7 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     display-name = "Alpha 1";
     bindings = <
       HLS(C)        HLA(L)       HLC(D)         HRC(U)       HLA(O)       HRS(M)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &mt L_ACC A  &mt L_EDT E  &hl L_SYM N
+      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &hl L_ACC A  &hl L_EDT E  &hl L_SYM N
       &hl L_NUM R                &kp SPACE      &sl L_AL2                 &hl L_FUN I
       
     >;
