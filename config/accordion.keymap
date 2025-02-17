@@ -211,8 +211,8 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp B   &kp P   &kp V    &kp W   &kp F   &kp Q
-      &kp J   &kp G   &kp K    &kp X   &kp Y   &kp Z
+      &kp K   &kp P   &kp V    &kp W   &kp F   &kp Q
+      &kp J   &kp B   &kp G    &kp X   &kp Y   &kp Z
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
