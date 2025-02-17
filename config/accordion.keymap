@@ -202,17 +202,17 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)        HLA(L)       HLC(D)         HRC(U)       HLA(O)       HRS(M)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &hl L_ACC A  &hl L_EDT E  &hl L_SYM N
-      &hl L_NUM R                &kp SPACE      &sl L_AL2                 &hl L_FUN I
+      HLS(C)        HLA(L)       HLC(R)         HRC(M)       HLA(I)       HRS(O)
+      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &hl L_ACC N  &hl L_EDT E  &hl L_SYM A
+      &hl L_NUM D                &kp SPACE      &sl L_AL2                 &hl L_FUN U
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp B   &kp P   &kp V    &kp F   &kp Q   &kp Y
-      &kp J   &kp G   &kp K    &kp X   &kp Z   &kp W
+      &kp B   &kp P   &kp V    &kp W   &kp F   &kp Q
+      &kp J   &kp G   &kp K    &kp X   &kp Y   &kp Z
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
