@@ -204,7 +204,7 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     bindings = <
       HLS(C)        HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
       &hl L_PAR S   &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &kp       E
-      &hl L_NUM U                &kp SPACE      &sl L_AL2                 &hl L_SYM K
+      &hl L_NUM U                &kp SPACE      &sl L_AL2                 &hl L_SYM H
       
     >;
   };
