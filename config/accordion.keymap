@@ -166,12 +166,12 @@ CB4(R_TT, mfwd, M_B5, L_MSE)
 
 // Combos L_PAR, used for dev like -> => </>
 CB4(RMM_, p_dash, &kp MINUS, L_PAR)
-CB4(R_MM, p_eq  , &kp EQUAL, L_PAR)
+// CB4(R_MM, p_eq  , &kp EQUAL, L_PAR)
 CB4(RMT_, p_slsh, &kp FSLH , L_PAR)
 
 // combos L_NUM
-CB4(RMM_, n_euro, &kp EURO, L_NUM)
-CB4(R_MM, n_gbp , &kp GBP , L_NUM)
+// CB4(RMM_, n_euro, &kp EURO, L_NUM)
+// CB4(R_MM, n_gbp , &kp GBP , L_NUM)
 
 
 // Combos Base layer
@@ -196,32 +196,32 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 
 // ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⓵⓶⓷⓸⓹⓺⓻⓼⓽⓾⓫⓬
 
-
+// T H E A N   D I G O F   R S C V     L M  u
 
 / { keymap { compatible = "zmk,keymap";
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)        HLA(L)       HLC(R)         HRC(M)       HLA(I)       HRS(O)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV H    &hl L_ACC N  &hl L_EDT E  &hl L_SYM A
-      &hl L_NUM D                &kp SPACE      &sl L_AL2                 &hl L_FUN U
+      HLS(C)        HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
+      &hl L_PAR S   &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &kp       E
+      &hl L_NUM U                &kp SPACE      &sl L_AL2                 &hl L_SYM K
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp K   &kp P   &kp V    &kp W   &kp F   &kp Q
-      &kp J   &kp B   &kp G    &kp X   &kp Y   &kp Z
+      &kp B   &kp P   &kp V    &kp F   &kp Q   &kp Y
+      &kp Z   &kp X   &kp G    &kp W   &kp K   &kp J
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
   numbers {
     display-name = "Numbers+Math";
     bindings = <
-      &mt FSLH STAR  &mt PERCENT PLUS  &kp MINUS        &mt DOLLAR N4  &mt EURO N5  &mt GBP N6
+      &mt FSLH STAR  &mt PERCENT PLUS  &mt EQUAL MINUS  &mt DOLLAR N4  &mt EURO N5  &mt GBP N6
       &kp     N7     &kp      N8       &kp        N9    &mt EXCL N1    &mt SUP2 N2  &kp N3
-      &mo L_NUM                        &mt HASH EQUAL   &mt DEGREE N0               &mt COMMA DOT
+      &mo L_NUM                        &mo L_FUN        &mt DEGREE N0               &mt COMMA DOT
       
     >;
   };
@@ -251,8 +251,8 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     display-name = "Symbols";
     bindings = <
       &mt HASH STAR  &kp PLUS   &kp MINUS     &kp SEMI   &kp COLON  MAYBE
-      &mt BSLH FSLH  &kp CARET  &kp DOLLAR    &kp COMMA  &kp DOT    &mo L_SYM
-      TODO                      TODO          TODO                  &mt EXCL QMARK
+      &mt BSLH FSLH  &kp CARET  &kp DOLLAR    &kp COMMA  &kp DOT    &mt EXCL QMARK
+      TODO                      TODO          TODO                  &mo L_SYM
     >;
   };
   
@@ -303,9 +303,9 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   functions {
     display-name = "Functions";
     bindings = <
-      HLS(F4)  HLA(F5)  HLC(F6)   HRC(F10)  HLA(F11)  HRS(F12)
-      &kp F1   &kp F2   &kp F3    &kp F7    &kp F8    &kp F9
-      XX                XX        XX                  &mo L_FUN  
+      HLS(F10)  HLA(F11)  HLC(F12)   HRC(F4)  HLA(F5)  HRS(F6)
+      &kp F7    &kp F8    &kp F9     &kp F1   &kp F2   &kp F3
+      &mo L_NUM           &mo L_FUN  XX                XX
       
     >;
   };
