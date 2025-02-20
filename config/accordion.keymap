@@ -76,14 +76,15 @@
 #define L_AL1 0
 #define L_AL2 1
 #define L_NUM 2
-#define L_PAR 3
-#define L_SYM 4 
-#define L_ACC 5
-#define L_EDT 6
-#define L_NAV 7
-#define L_MSE 8
-#define L_FUN 9
-#define L_BLE 10
+#define L_FUN 3
+#define L_PAR 4 
+#define L_SYM 5
+#define L_RXP 6
+#define L_ACC 7
+#define L_EDT 8
+#define L_NAV 9
+#define L_MSE 10
+#define L_BLE 11
 
 
 
@@ -203,7 +204,7 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     display-name = "Alpha 1";
     bindings = <
       HLS(C)        HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &kp       E
+      &hl L_PAR S   &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &hl L_RXP E
       &hl L_NUM U                &kp SPACE      &sl L_AL2                 &hl L_SYM H
       
     >;
@@ -211,20 +212,31 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp B   &kp P   &kp V    &kp F   &kp Q   &kp Y
-      &kp Z   &kp X   &kp G    &kp W   &kp K   &kp J
+      &kp X   &kp B   &kp V    &kp F   &kp Q   &kp Y
+      &kp Z   &kp P   &kp G    &kp J   &kp K   &kp W
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
   numbers {
     display-name = "Numbers+Math";
     bindings = <
-      &mt FSLH STAR  &mt PERCENT PLUS  &mt EQUAL MINUS  &mt DOLLAR N4  &mt EURO N5  &mt GBP N6
-      &kp     N7     &kp      N8       &kp        N9    &mt EXCL N1    &mt SUP2 N2  &kp N3
+      &mt FSLH STAR  &mt PERCENT PLUS  &mt EQUAL MINUS  &mt EURO   N4  &mt GBP  N5  &mt DOLLAR N6
+      &mt AMPS N7    &kp         N8    &kp       N9     &mt EXCL   N1  &mt SUP2 N2  &mt HASH   N3
       &mo L_NUM                        &mo L_FUN        &mt DEGREE N0               &mt COMMA DOT
       
     >;
   };
+  
+  functions {
+    display-name = "Functions";
+    bindings = <
+      HLS(F10)  HLA(F11)  HLC(F12)   HRC(F4)  HLA(F5)  HRS(F6)
+      &kp F7    &kp F8    &kp F9     &kp F1   &kp F2   &kp F3
+      &mo L_NUM           &mo L_FUN  MAYBE             MAYBE
+      
+    >;
+  };
+  
   
   parentheses {
     display-name = "Parentheses";
@@ -244,18 +256,28 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 // maybe not: ¥¡÷×«»“”¶¿
 // dead grave tilde acute circ dier macron?
   
-//   ~@     &   _  
+//   ~@&_|
 
-// !? ,; .:         /\ #* $ +- = @
+//   SYM:  text, writing  ,.?!;:#*$   @/&     maybe: %
+// /\ #* $ +- = @ %&
   symbols {
     display-name = "Symbols";
     bindings = <
-      &mt HASH STAR  &kp PLUS   &kp MINUS     &kp SEMI   &kp COLON  MAYBE
-      &mt BSLH FSLH  &kp CARET  &kp DOLLAR    &kp COMMA  &kp DOT    &mt EXCL QMARK
-      TODO                      TODO          TODO                  &mo L_SYM
+      &kp AMPS      &kp DOLLAR  &kp MINUS   &kp QMARK  &kp EXCL   &kp COLON  
+      &kp HASH      &kp STAR    &kp AT      &kp COMMA  &kp DOT    &kp SEMI   
+      &mt BSLH FSLH             TODO        TODO                  &mo L_SYM
     >;
   };
   
+//   regexp       -:   +*^$| 
+  regexp {
+    display-name = "RegExp";
+    bindings = <
+      &kp CARET &kp DOLLAR  &kp PIPE     &kp COLON  &kp MINUS  MAYBE
+      &kp PLUS  &kp STAR    &kp QMARK    &kp BSLH   &kp FSLH   &mo L_RXP
+      TODO                  TODO         TODO                  &kp DOT
+    >;
+  };
   
   
   accents {
@@ -299,16 +321,6 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
     >;
   };
 
-  
-  functions {
-    display-name = "Functions";
-    bindings = <
-      HLS(F10)  HLA(F11)  HLC(F12)   HRC(F4)  HLA(F5)  HRS(F6)
-      &kp F7    &kp F8    &kp F9     &kp F1   &kp F2   &kp F3
-      &mo L_NUM           &mo L_FUN  XX                XX
-      
-    >;
-  };
   
   
   bluetooth {
