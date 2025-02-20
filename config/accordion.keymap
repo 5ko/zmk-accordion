@@ -201,17 +201,32 @@ ZMK_MACRO(o_circ,  bindings = <&ns_dcrc &kp O> ;)
 ZMK_MACRO(u_dier,  bindings = <&kp D_DRS &kp U> ;)
 
 ZMK_MACRO(mhold_lt  , bindings = <&kp LT &kp GT &kp LEFT> ;)
-ZMK_MACRO(mhold_gt  , bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
-ZMK_MACRO(mhold_lbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
-ZMK_MACRO(mhold_rbrc, bindings = <&kp LBRC &kp DOLLAR &kp RBRC &kp LEFT> ;)
-ZMK_MACRO(mhold_lbkt, bindings = <&kp LBKT &kp RBKT &kp LEFT> ;)
-ZMK_MACRO(mhold_rbkt, bindings = <&kp LBKT &kp CARET &kp RBKT &kp LEFT> ;)
-ZMK_MACRO(mhold_grv , bindings = <&kp GRAVE &kp GRAVE &kp LEFT> ;)
-ZMK_MACRO(mhold_sqt , bindings = <&kp SQT &kp SQT &kp LEFT> ;)
-ZMK_MACRO(mhold_dqt , bindings = <&kp DQT &kp DQT &kp LEFT> ;)
-
 HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
+ZMK_MACRO(mhold_gt  , bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
 HTTP(hold_gt, bindings = <&mhold_gt>, <&kp>; )
+
+ZMK_MACRO(mhold_lbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
+HTTP(hold_lbrc, bindings = <&mhold_lbrc>, <&kp>; )
+
+ZMK_MACRO(mhold_rbrc, bindings = <&kp LBRC &kp DOLLAR &kp RBRC &kp LEFT> ;)
+HTTP(hold_rbrc, bindings = <&mhold_rbrc>, <&kp>; )
+
+ZMK_MACRO(mhold_lbkt, bindings = <&kp LBKT &kp RBKT &kp LEFT> ;)
+HTTP(hold_lbkt, bindings = <&mhold_lbkt>, <&kp>; )
+
+ZMK_MACRO(mhold_rbkt, bindings = <&kp LBKT &kp CARET &kp RBKT &kp LEFT> ;)
+HTTP(hold_rbkt, bindings = <&mhold_rbkt>, <&kp>; )
+
+ZMK_MACRO(mhold_grv , bindings = <&kp GRAVE &kp GRAVE &kp LEFT> ;)
+HTTP(hold_grv, bindings = <&mhold_grv>, <&kp>; )
+
+ZMK_MACRO(mhold_sqt , bindings = <&kp SQT &kp SQT &kp LEFT> ;)
+HTTP(hold_sqt, bindings = <&mhold_sqt>, <&kp>; )
+
+ZMK_MACRO(mhold_dqt , bindings = <&kp DQT &kp DQT &kp LEFT> ;)
+HTTP(hold_dqt, bindings = <&mhold_dqt>, <&kp>; )
+
+
 
 // Combos L_NAV
 
