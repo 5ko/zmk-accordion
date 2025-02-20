@@ -205,11 +205,14 @@ HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
 ZMK_MACRO(mhold_gt  , bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
 HTTP(hold_gt, bindings = <&mhold_gt>, <&kp>; )
 
-ZMK_MACRO(mhold_lbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
+ZMK_MACRO(mhold_lbrc, bindings = <&kp LBRC &kp RBRC &kp LEFT> ;)
 HTTP(hold_lbrc, bindings = <&mhold_lbrc>, <&kp>; )
 
 ZMK_MACRO(mhold_rbrc, bindings = <&kp LBRC &kp DOLLAR &kp RBRC &kp LEFT> ;)
 HTTP(hold_rbrc, bindings = <&mhold_rbrc>, <&kp>; )
+
+ZMK_MACRO(m_lrbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
+// HTTP(hold_lbrc, bindings = <&mhold_lbrc>, <&kp>; )
 
 ZMK_MACRO(mhold_lbkt, bindings = <&kp LBKT &kp RBKT &kp LEFT> ;)
 HTTP(hold_lbkt, bindings = <&mhold_lbkt>, <&kp>; )
@@ -226,6 +229,7 @@ HTTP(hold_sqt, bindings = <&mhold_sqt>, <&kp>; )
 ZMK_MACRO(mhold_dqt , bindings = <&kp DQT &kp DQT &kp LEFT> ;)
 HTTP(hold_dqt, bindings = <&mhold_dqt>, <&kp>; )
 
+ZMK_MACRO(dashgt , bindings = <&kp MINUS &kp GT> ;)
 
 
 // Combos L_NAV
@@ -239,9 +243,11 @@ CB4(RTT_, mbck, M_B4, L_MSE)
 CB4(R_TT, mfwd, M_B5, L_MSE)
 
 // Combos L_PAR, used for dev like -> => </>
-CB4(RMM_, p_dash, &kp MINUS, L_PAR)
+CB4(R_TT, p_dashgt, &dashgt, L_PAR)
+CB4(L_TT, p_lrbrc, &m_lrbrc, L_PAR)
+// CB4(RMM_, p_dash, &kp MINUS, L_PAR)
 // CB4(R_MM, p_eq  , &kp EQUAL, L_PAR)
-CB4(RMT_, p_slsh, &kp FSLH , L_PAR)
+// CB4(RMT_, p_slsh, &kp FSLH , L_PAR)
 
 // combos L_NUM
 // CB4(RMM_, n_euro, &kp EURO, L_NUM)
