@@ -154,7 +154,56 @@
 #define CB3(keypos, name, bindings) \
   ZMK_COMBO(name, bindings, keypos)
   
+// Simple hold-tabs, tap-preferred
+#define HTTP(name, ...)  \
+  / { \
+    behaviors { \
+      name: name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        flavor = "tap-preferred"; \
+        tapping-term-ms = <HOLDTAP_TERM>; \
+        #binding-cells = <2>;\
+        __VA_ARGS__ \
+      }; \
+    }; \
+  };
+
+// Hold-Tap NoShift KeyPress
+#define Unshift(name, keycode)  \
+  / { \
+    behaviors { \
+      name: behavior_unshift_##name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>;\
+        bindings = <&kp keycode>, <&kp keycode>;\
+        mods = <(MOD_LSFT|MOD_RSFT)>;\
+        keep-mods = <(MOD_RALT)>; \
+      }; \
+    }; \
+  };
   
+Unshift(ns_dacu, D_ACU)
+Unshift(ns_dgrv, D_GRV)
+Unshift(ns_dcrc, D_CRC)
+
+
+ZMK_MACRO(a_grave, bindings = <&ns_dgrv &kp A> ;)
+ZMK_MACRO(u_grave, bindings = <&ns_dgrv &kp U> ;)
+ZMK_MACRO(e_grave, bindings = <&ns_dgrv &kp E> ;)
+ZMK_MACRO(a_circ,  bindings = <&ns_dcrc &kp A> ;)
+ZMK_MACRO(e_acute, bindings = <&ns_dacu &kp E> ;)
+ZMK_MACRO(e_circ,  bindings = <&ns_dcrc &kp E> ;)
+ZMK_MACRO(e_dier,  bindings = <&kp D_DRS &kp E> ;)
+ZMK_MACRO(u_circ,  bindings = <&ns_dcrc &kp U> ;)
+ZMK_MACRO(i_circ,  bindings = <&ns_dcrc &kp I >;)
+ZMK_MACRO(i_dier,  bindings = <&kp D_DRS &kp I> ;)
+ZMK_MACRO(o_circ,  bindings = <&ns_dcrc &kp O> ;)
+ZMK_MACRO(u_dier,  bindings = <&kp D_DRS &kp U> ;)
+
+ZMK_MACRO(mhold_lt,  bindings = <&kp LT &kp GT &kp LEFT> ;)
+
+HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
+
 // Combos L_NAV
 
 CB4(LMM_, mute, &mt K_PP K_MUTE, L_NAV)
@@ -180,7 +229,6 @@ CB4(LTT_, esca, &kp ESC        , L_AL1)
 CB4(L_TT, tabs, &mt LS(TAB) TAB, L_AL1)
 CB4(LT_T, caps, &kp CAPS       , L_AL1)
 CB4(LTTT, lgui, &sk LGUI       , L_AL1)
-CB4(RTT_, bksp, &kp BACKSPACE  , L_AL1)
 CB4(R_TT, dele, &kp DELETE     , L_AL1)
 CB4(RTTT, rgui, &sk RGUI       , L_AL1)
 CB4(RT_T, ralt, &sk RALT       , L_AL1)
@@ -195,6 +243,9 @@ CB4(L_XX, reflash , &bootloader, L_AL1)
 CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 
 
+// Combos ALL layers
+CB3(RTT_, bksp, &kp BACKSPACE)
+CB3(R_BB, entr, &kp ENTER)
 // ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⓵⓶⓷⓸⓹⓺⓻⓼⓽⓾⓫⓬
 
 // T H E A N   D I G O F   R S C V     L M  u
@@ -241,9 +292,9 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC    &kp LT    &kp GT    &kp EQUAL
-      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR  &kp RPAR  &kp SEMI
-      TODO                 &kp GRAVE   &kp DQT             &kp SQT 
+      MAYBE      &kp LBRC  &kp RBRC    &hold_lt 0 LT  &kp GT    &kp EQUAL
+      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR       &kp RPAR  &kp SEMI
+      TODO                 &kp GRAVE   &kp DQT                 &kp SQT 
     >;
   };
   
@@ -283,8 +334,8 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
   accents {
     display-name = "Accents";
     bindings = <
-      &kp C_CDL  TODO  TODO    MAYBE      &kp D_CRC  &kp D_DRS
-      &kp S_SRP  TODO  TODO    &mo L_ACC  &kp D_ACU  &kp D_GRV
+      &kp C_CDL  TODO  TODO    MAYBE      &ns_dcrc   &kp D_DRS
+      &kp S_SRP  TODO  TODO    &mo L_ACC  &ns_dacu   &ns_dgrv
       TODO             TODO    TODO                  &kp D_TLD
     >;
   };
