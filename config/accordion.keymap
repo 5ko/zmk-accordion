@@ -201,8 +201,10 @@ ZMK_MACRO(o_circ,  bindings = <&ns_dcrc &kp O> ;)
 ZMK_MACRO(u_dier,  bindings = <&kp D_DRS &kp U> ;)
 
 ZMK_MACRO(mhold_lt,  bindings = <&kp LT &kp GT &kp LEFT> ;)
+ZMK_MACRO(mhold_gt,  bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
 
 HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
+HTTP(hold_gt, bindings = <&mhold_gt>, <&kp>; )
 
 // Combos L_NAV
 
@@ -292,9 +294,9 @@ CB3(R_BB, entr, &kp ENTER)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC    &hold_lt 0 LT  &kp GT    &kp EQUAL
-      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR       &kp RPAR  &kp SEMI
-      TODO                 &kp GRAVE   &kp DQT                 &kp SQT 
+      MAYBE      &kp LBRC  &kp RBRC    &hold_lt 0 LT  &hold_gt 0 GT    &kp EQUAL
+      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR       &kp RPAR         &kp SEMI
+      TODO                 &kp GRAVE   &kp DQT                         &kp SQT 
     >;
   };
   
