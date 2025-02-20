@@ -200,8 +200,15 @@ ZMK_MACRO(i_dier,  bindings = <&kp D_DRS &kp I> ;)
 ZMK_MACRO(o_circ,  bindings = <&ns_dcrc &kp O> ;)
 ZMK_MACRO(u_dier,  bindings = <&kp D_DRS &kp U> ;)
 
-ZMK_MACRO(mhold_lt,  bindings = <&kp LT &kp GT &kp LEFT> ;)
-ZMK_MACRO(mhold_gt,  bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
+ZMK_MACRO(mhold_lt  , bindings = <&kp LT &kp GT &kp LEFT> ;)
+ZMK_MACRO(mhold_gt  , bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
+ZMK_MACRO(mhold_lbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
+ZMK_MACRO(mhold_rbrc, bindings = <&kp LBRC &kp DOLLAR &kp RBRC &kp LEFT> ;)
+ZMK_MACRO(mhold_lbkt, bindings = <&kp LBKT &kp RBKT &kp LEFT> ;)
+ZMK_MACRO(mhold_rbkt, bindings = <&kp LBKT &kp CARET &kp RBKT &kp LEFT> ;)
+ZMK_MACRO(mhold_grv , bindings = <&kp GRAVE &kp GRAVE &kp LEFT> ;)
+ZMK_MACRO(mhold_sqt , bindings = <&kp SQT &kp SQT &kp LEFT> ;)
+ZMK_MACRO(mhold_dqt , bindings = <&kp DQT &kp DQT &kp LEFT> ;)
 
 HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
 HTTP(hold_gt, bindings = <&mhold_gt>, <&kp>; )
@@ -294,9 +301,9 @@ CB3(R_MM, entr, &kp ENTER)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &kp LBRC  &kp RBRC    &hold_lt 0 LT  &hold_gt 0 GT    &kp EQUAL
-      &mo L_PAR  &kp LBKT  &kp RBKT    &kp LPAR       &kp RPAR         &kp SEMI
-      TODO                 &kp GRAVE   &kp DQT                         &kp SQT 
+      MAYBE      &mhold_lbrc 0 LBRC  &mhold_rbrc 0 RBRC    &hold_lt 0 LT  &hold_gt 0 GT  &kp EQUAL
+      &mo L_PAR  &mhold_lbkt 0 LBKT  &mhold_rbkt 0 RBKT    &kp LPAR       &kp RPAR       &kp SEMI
+      TODO                           &mhold_grv 0 GRAVE    &mhold_dqt 0 DQT              &mhold_sqt 0 SQT 
     >;
   };
   
