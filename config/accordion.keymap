@@ -202,35 +202,52 @@ ZMK_MACRO(u_dier,  bindings = <&kp D_DRS &kp U> ;)
 
 ZMK_MACRO(mhold_lt  , bindings = <&kp LT &kp GT &kp LEFT> ;)
 HTTP(hold_lt, bindings = <&mhold_lt>, <&kp>; )
+#define H_LT &hold_lt 0 LT
+
 ZMK_MACRO(mhold_gt  , bindings = <&kp LT &kp FSLH &kp GT &kp LEFT> ;)
 HTTP(hold_gt, bindings = <&mhold_gt>, <&kp>; )
+#define H_GT &hold_gt 0 GT
 
 ZMK_MACRO(mhold_lbrc, bindings = <&kp LBRC &kp RBRC &kp LEFT> ;)
 HTTP(hold_lbrc, bindings = <&mhold_lbrc>, <&kp>; )
+#define H_LBRC &hold_lbrc 0 LBRC
 
 ZMK_MACRO(mhold_rbrc, bindings = <&kp LBRC &kp DOLLAR &kp RBRC &kp LEFT> ;)
 HTTP(hold_rbrc, bindings = <&mhold_rbrc>, <&kp>; )
+#define H_RBRC &hold_rbrc 0 RBRC
 
 ZMK_MACRO(m_lrbrc, bindings = <&kp DOLLAR &kp LBRC &kp RBRC &kp LEFT> ;)
 // HTTP(hold_lbrc, bindings = <&mhold_lbrc>, <&kp>; )
 
 ZMK_MACRO(mhold_lbkt, bindings = <&kp LBKT &kp RBKT &kp LEFT> ;)
 HTTP(hold_lbkt, bindings = <&mhold_lbkt>, <&kp>; )
+#define H_LBKT &hold_lbkt 0 LBKT
 
 ZMK_MACRO(mhold_rbkt, bindings = <&kp LBKT &kp CARET &kp RBKT &kp LEFT> ;)
 HTTP(hold_rbkt, bindings = <&mhold_rbkt>, <&kp>; )
+#define H_RBKT &hold_rbkt 0 RBKT
 
 ZMK_MACRO(mhold_grv , bindings = <&kp GRAVE &kp GRAVE &kp LEFT> ;)
 HTTP(hold_grv, bindings = <&mhold_grv>, <&kp>; )
+#define H_GRV &hold_grv 0 GRAVE
 
 ZMK_MACRO(mhold_sqt , bindings = <&kp SQT &kp SQT &kp LEFT> ;)
 HTTP(hold_sqt, bindings = <&mhold_sqt>, <&kp>; )
+#define H_SQT &hold_sqt 0 SQT
 
 ZMK_MACRO(mhold_dqt , bindings = <&kp DQT &kp DQT &kp LEFT> ;)
 HTTP(hold_dqt, bindings = <&mhold_dqt>, <&kp>; )
+#define H_DQT &hold_dqt 0 DQT
 
 ZMK_MACRO(dashgt , bindings = <&kp MINUS &kp GT> ;)
 
+ZMK_MACRO(mhold_lpar, bindings = <&kp LPAR &kp RPAR &kp LEFT> ;)
+HTTP(hold_lpar, bindings = <&mhold_lpar>, <&kp>; )
+#define H_LPAR &hold_lpar 0 LPAR
+
+ZMK_MACRO(mhold_rpar, bindings = <&kp LPAR &kp EXCL &kp RPAR &kp LEFT> ;)
+HTTP(hold_lpar, bindings = <&mhold_rpar>, <&kp>; )
+#define H_RPAR &hold_rpar 0 RPAR
 
 // Combos L_NAV
 
@@ -294,7 +311,7 @@ CB3(R_MM, entr, &kp ENTER)
     display-name = "Alpha 2";
     bindings = <
       &kp X   &kp B   &kp V    &kp F   &kp Q   &kp Y
-      &kp Z   &kp P   &kp G    &kp J   &kp K   &kp W
+      &kp Z   &kp P   &kp W    &kp G   &kp K   &kp J
       TODO            TODO     TODO            &kp ENTER    
     >;
   };
@@ -322,9 +339,9 @@ CB3(R_MM, entr, &kp ENTER)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      &hold_lbrc 0 LBRC  &hold_rbrc 0 RBRC    &hold_lt 0 LT  &hold_gt 0 GT  &kp EQUAL
-      &mo L_PAR  &hold_lbkt 0 LBKT  &hold_rbkt 0 RBKT    &kp LPAR       &kp RPAR       &kp SEMI
-      TODO                          &hold_grv 0 GRAVE    &hold_dqt 0 DQT               &hold_sqt 0 SQT 
+      MAYBE      H_LBRC  H_RBRC   H_LT    H_GT    &kp EQUAL
+      &mo L_PAR  H_LBKT  H_RBKT   H_LPAR  H_RPAR  &kp SEMI
+      TODO               H_GRV    H_DQT           H_SQT 
     >;
   };
   
