@@ -246,7 +246,7 @@ HTTP(hold_lpar, bindings = <&mhold_lpar>, <&kp>; )
 #define H_LPAR &hold_lpar 0 LPAR
 
 ZMK_MACRO(mhold_rpar, bindings = <&kp LPAR &kp EXCL &kp RPAR &kp LEFT> ;)
-HTTP(hold_lpar, bindings = <&mhold_rpar>, <&kp>; )
+HTTP(hold_rpar, bindings = <&mhold_rpar>, <&kp>; )
 #define H_RPAR &hold_rpar 0 RPAR
 
 // Combos L_NAV
