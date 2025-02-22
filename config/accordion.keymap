@@ -274,13 +274,13 @@ HTTP(hold_rpar, bindings = <&mhold_rpar>, <&kp>; )
 #define H_RPAR &hold_rpar 0 RPAR
 
 
-// ZMK_MACRO(mhold_amp  , bindings = <&kp AMPS &kp SEMI &kp LEFT> ;)
-// HTTP(hold_amp, bindings = <&mhold_amp>, <&kp>; )
-// #define H_AMPS &hold_amp 0 AMPS
-// 
-// ZMK_MACRO(mhold_eq  , bindings = <&kp EXCL &kp EQUAL> ;)
-// HTTP(hold_eq, bindings = <&mhold_eq>, <&kp>; )
-// #define H_EQ &hold_amp 0 EQUAL
+ZMK_MACRO(mhold_amp  , bindings = <&kp AMPS &kp SEMI &kp LEFT> ;)
+HTTP(hold_amp, bindings = <&mhold_amp>, <&kp>; )
+#define H_AMPS &hold_amp 0 AMPS
+
+ZMK_MACRO(mhold_eq  , bindings = <&kp EXCL &kp EQUAL> ;)
+HTTP(hold_eq, bindings = <&mhold_eq>, <&kp>; )
+#define H_EQ &hold_amp 0 EQUAL
 
 
 // Combos L_NAV
@@ -398,7 +398,7 @@ CB3(RM_M, entr, &kp ENTER)
   symbols {
     display-name = "Symbols";
     bindings = <
-      &kp H_AMPS  &kp DOLLAR  &kp MINUS    &kp QMARK  &kp EXCL  &kp COLON  
+      H_AMPS      &kp DOLLAR  &kp MINUS    &kp QMARK  &kp EXCL  &kp COLON  
       &kp HASH    &kp STAR    &kp AT       &kp COMMA  &kp DOT   &kp SEMI   
       &kp BSLH                &kp TILDE    &kp FSLH             &mo L_SYM
     >;
