@@ -383,7 +383,7 @@ CB3(RM_M, entr, &kp ENTER)
   
   
 // TODO  punctuation; accents; edit shortcuts; macro words
-// TODO  E_PRINT INSERT
+// TODO  E_PRINT, PRINTSCREEN INSERT 
 
 // 
 // Maybe: +-=; 
@@ -426,9 +426,9 @@ CB3(RM_M, entr, &kp ENTER)
   editing {
     display-name = "Edit shortcuts";
     bindings = <
-      TODO    TODO    TODO     TODO  MAYBE      H_REDO
-      H_SAVE  H_PAST  H_COPY   TODO  &mo L_EDT  &kp U_UNDO
-      TODO            TODO     TODO             TODO      
+      TODO    E_FIND   E_REPL   TODO  INSERT     E_REDO
+      E_SAVE  E_PASTE  E_COPY   TODO  &mo L_EDT  E_UNDO
+      TODO             TODO     TODO             TODO
     >;
   };
   
