@@ -426,9 +426,9 @@ CB3(RM_M, entr, &kp ENTER)
   editing {
     display-name = "Edit shortcuts";
     bindings = <
-      TODO    E_FIND   E_REPL   TODO  INSERT     E_REDO
-      E_SAVE  E_PASTE  E_COPY   TODO  &mo L_EDT  E_UNDO
-      TODO             TODO     TODO             TODO
+      TODO    E_FIND   E_REPL   TODO  &kp INSERT  E_REDO
+      E_SAVE  E_PASTE  E_COPY   TODO  &mo L_EDT   E_UNDO
+      TODO             TODO     TODO              TODO
     >;
   };
   
