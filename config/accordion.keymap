@@ -274,13 +274,13 @@ HTTP(hold_rpar, bindings = <&mhold_rpar>, <&kp>; )
 #define H_RPAR &hold_rpar 0 RPAR
 
 
-ZMK_MACRO(mhold_amp  , bindings = <&kp AMPS &kp SEMI &kp LEFT> ;)
-HTTP(hold_amp, bindings = <&mhold_amp>, <&kp>; )
-#define H_AMPS &hold_amp 0 AMPS
-
-ZMK_MACRO(mhold_eq  , bindings = <&kp EXCL &kp EQUAL> ;)
-HTTP(hold_eq, bindings = <&mhold_eq>, <&kp>; )
-#define H_EQ &hold_amp 0 EQUAL
+// ZMK_MACRO(mhold_amp  , bindings = <&kp AMPS &kp SEMI &kp LEFT> ;)
+// HTTP(hold_amp, bindings = <&mhold_amp>, <&kp>; )
+// #define H_AMPS &hold_amp 0 AMPS
+// 
+// ZMK_MACRO(mhold_eq  , bindings = <&kp EXCL &kp EQUAL> ;)
+// HTTP(hold_eq, bindings = <&mhold_eq>, <&kp>; )
+// #define H_EQ &hold_amp 0 EQUAL
 
 
 // Combos L_NAV
@@ -345,13 +345,12 @@ CB3(RM_M, entr, &kp ENTER)
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp X   &kp B   &kp V      &kp F   &kp Q   &kp Y
-      &kp Z   &kp P   &kp W      &kp G   &kp K   &kp J
-      
-//  Letters used in French, and the bottom left 4 letters of the Cyrillic layout
-      &kp NUBS      &kp AELIG    &kp OELIG   &kp C_CDL 
-//    Ю Cyr_YU      Щ Cyr_SHCHA  Ш Cyr_SHA   Ч Cyr_CHA
+      &kp X   &kp B   &kp V       &kp F   &kp Q   &kp Y
+      &kp Z   &kp P   &kp W       &kp G   &kp K   &kp J
+      &kp NUBS        &kp AELIG   &kp OELIG       &kp C_CDL 
     >;
+//  Last line letters used in French, and the bottom left 4 letters of the Cyrillic layout
+//    Ю Cyr_YU      Щ Cyr_SHCHA  Ш Cyr_SHA   Ч Cyr_CHA
   };
   numbers {
     display-name = "Numbers+Math";
