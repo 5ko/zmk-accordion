@@ -347,10 +347,9 @@ CB3(RM_M, entr, &kp ENTER)
     bindings = <
       &kp X   &kp B   &kp V       &kp F   &kp Q   &kp Y
       &kp Z   &kp P   &kp W       &kp G   &kp K   &kp J
-      &kp NUBS        &kp AELIG   &kp OELIG       &kp C_CDL 
+      &kp BS_YU       &kp CC_CH   &kp OE_SH       &kp AE_SHT
     >;
-//  Last line letters used in French, and the bottom left 4 letters of the Cyrillic layout
-//    Ю Cyr_YU      Щ Cyr_SHCHA  Ш Cyr_SHA   Ч Cyr_CHA
+//  Last line letters used in French, and some letters of the Cyrillic layout
   };
   numbers {
     display-name = "Numbers+Math";
@@ -418,7 +417,7 @@ CB3(RM_M, entr, &kp ENTER)
   accents {
     display-name = "Accents";
     bindings = <
-      &kp C_CDL  &ns_dcrc  &kp D_DRS    MAYBE       H_OCRC  H_ICRC
+      &kp CC_CH  &ns_dcrc  &kp D_DRS    MAYBE       H_OCRC  H_ICRC
       &kp S_SRP  &ns_dacu  &ns_dgrv     &mo L_ACC   H_AGRV  H_EACU
       H_UGRV               &kp D_TLD    &kp NTILDE          H_EGRV 
     >;
@@ -427,9 +426,9 @@ CB3(RM_M, entr, &kp ENTER)
   editing {
     display-name = "Edit shortcuts";
     bindings = <
-      TODO  TODO  TODO    TODO  TODO       TODO
-      TODO  TODO  TODO    TODO  &mo L_EDT  TODO
-      TODO        TODO    TODO             TODO      
+      TODO    TODO    TODO     TODO  MAYBE      H_REDO
+      H_SAVE  H_PAST  H_COPY   TODO  &mo L_EDT  &kp U_UNDO
+      TODO            TODO     TODO             TODO      
     >;
   };
   
