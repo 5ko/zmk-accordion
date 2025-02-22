@@ -199,7 +199,7 @@ HTTP(hold_eacu, bindings = <&e_circ>, <&e_acute>; )
 
 ZMK_MACRO(a_grave, bindings = <&ns_dgrv &kp A> ;)
 ZMK_MACRO(a_circ,  bindings = <&ns_dcrc &kp A> ;)
-HTTP(hold_agrv, bindings = <&a_grave>, <&a_circ>; )
+HTTP(hold_agrv, bindings = <&a_circ>, <&a_grave>; )
 #define H_AGRV &hold_agrv 0 0
 
 ZMK_MACRO(u_grave, bindings = <&ns_dgrv &kp U> ;)
@@ -274,6 +274,14 @@ HTTP(hold_rpar, bindings = <&mhold_rpar>, <&kp>; )
 #define H_RPAR &hold_rpar 0 RPAR
 
 
+ZMK_MACRO(mhold_amp  , bindings = <&kp AMPS &kp SEMI &kp LEFT> ;)
+HTTP(hold_amp, bindings = <&mhold_amp>, <&kp>; )
+#define H_AMPS &hold_amp 0 AMPS
+
+ZMK_MACRO(mhold_eq  , bindings = <&kp EXCL &kp EQUAL> ;)
+HTTP(hold_eq, bindings = <&mhold_eq>, <&kp>; )
+#define H_EQ &hold_amp 0 EQUAL
+
 
 // Combos L_NAV
 
@@ -306,7 +314,8 @@ CB4(R_TT, dele, &kp DELETE     , L_AL1)
 CB4(RTTT, rgui, &sk RGUI       , L_AL1)
 CB4(RT_T, ralt, &sk RALT       , L_AL1)
 
-CB4(RMM_, left, &mt HOME LEFT  , L_AL1)
+CB4(RMM_, hlft, &mt HOME LEFT  , L_AL1)
+CB4(R_MM, rend, &mt END  RIGHT , L_AL1)
 // CB4(R_MM, rght, &mt END  RIGHT , L_AL1)
 // CB4(RM_M, up  , &kp UP         , L_AL1)
 // CB4(RMMM, down, &kp DOWN       , L_AL1)
@@ -318,7 +327,7 @@ CB4(LX_X, blutooth, &sl L_BLE  , L_AL1)
 
 // Combos ALL layers
 CB3(RTT_, bksp, &kp BACKSPACE)
-CB3(R_MM, entr, &kp ENTER)
+CB3(RM_M, entr, &kp ENTER)
 // ①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⓵⓶⓷⓸⓹⓺⓻⓼⓽⓾⓫⓬
 
 // T H E A N   D I G O F   R S C V     L M  u
@@ -327,26 +336,29 @@ CB3(R_MM, entr, &kp ENTER)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)        HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
-      &hl L_PAR S   &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &hl L_RXP E
-      &hl L_NUM U                &kp SPACE      &sl L_AL2                 &hl L_SYM H
+      HLS(C)       HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
+      &hl L_PAR S  &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &hl L_RXP E
+      &hl L_NUM U               &kp SPACE      &sl L_AL2                 &hl L_SYM H
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp X   &kp B   &kp V    &kp F   &kp Q   &kp Y
-      &kp Z   &kp P   &kp W    &kp G   &kp K   &kp J
-      TODO            TODO     TODO            &kp ENTER    
+      &kp X   &kp B   &kp V      &kp F   &kp Q   &kp Y
+      &kp Z   &kp P   &kp W      &kp G   &kp K   &kp J
+      
+//  Letters used in French, and the bottom left 4 letters of the Cyrillic layout
+      &kp NUBS      &kp AELIG    &kp OELIG   &kp C_CDL 
+//    Ю Cyr_YU      Щ Cyr_SHCHA  Ш Cyr_SHA   Ч Cyr_CHA
     >;
   };
   numbers {
     display-name = "Numbers+Math";
     bindings = <
-      &mt FSLH STAR  &mt PERCENT PLUS  &mt EQUAL MINUS  &mt EURO   N4  &mt GBP  N5  &mt DOLLAR N6
-      &mt AMPS N7    &kp         N8    &kp       N9     &mt EXCL   N1  &mt SUP2 N2  &mt HASH   N3
-      &mo L_NUM                        &mo L_FUN        &mt DEGREE N0               &mt COMMA DOT
+      &mt FSLH STAR  &mt PERCENT PLUS  &mt EQUAL MINUS     &mt EURO   N4  &mt GBP  N5  &mt DOLLAR N6
+      &mt AMPS N7    &kp         N8    &kp       N9        &mt EXCL   N1  &mt SUP2 N2  &mt HASH   N3
+      &mo L_NUM                        &mo L_FUN           &mt DEGREE N0               &mt COMMA DOT
       
     >;
   };
@@ -354,9 +366,9 @@ CB3(R_MM, entr, &kp ENTER)
   functions {
     display-name = "Functions";
     bindings = <
-      HLS(F10)  HLA(F11)  HLC(F12)   HRC(F4)  HLA(F5)  HRS(F6)
-      &kp F7    &kp F8    &kp F9     &kp F1   &kp F2   &kp F3
-      &mo L_NUM           &mo L_FUN  MAYBE             MAYBE
+      HLS(F10)  HLA(F11)  HLC(F12)     HRC(F4)  HLA(F5)  HRS(F6)
+      &kp F7    &kp F8    &kp F9       &kp F1   &kp F2   &kp F3
+      &mo L_NUM           &mo L_FUN    MAYBE             MAYBE
       
     >;
   };
@@ -365,7 +377,7 @@ CB3(R_MM, entr, &kp ENTER)
   parentheses {
     display-name = "Parentheses";
     bindings = <
-      MAYBE      H_LBRC  H_RBRC   H_LT    H_GT    &kp EQUAL
+      MAYBE      H_LBRC  H_RBRC   H_LT    H_GT    H_EQ
       &mo L_PAR  H_LBKT  H_RBKT   H_LPAR  H_RPAR  &kp SEMI
       TODO               H_GRV    H_DQT           H_SQT 
     >;
@@ -373,7 +385,7 @@ CB3(R_MM, entr, &kp ENTER)
   
   
 // TODO  punctuation; accents; edit shortcuts; macro words
-// TODO  E_PRINT
+// TODO  E_PRINT INSERT
 
 // 
 // Maybe: +-=; 
@@ -387,9 +399,9 @@ CB3(R_MM, entr, &kp ENTER)
   symbols {
     display-name = "Symbols";
     bindings = <
-      &kp AMPS  &kp DOLLAR  &kp MINUS    &kp QMARK  &kp EXCL  &kp COLON  
-      &kp HASH  &kp STAR    &kp AT       &kp COMMA  &kp DOT   &kp SEMI   
-      &kp BSLH              &kp TILDE    &kp FSLH             &mo L_SYM
+      &kp H_AMPS  &kp DOLLAR  &kp MINUS    &kp QMARK  &kp EXCL  &kp COLON  
+      &kp HASH    &kp STAR    &kp AT       &kp COMMA  &kp DOT   &kp SEMI   
+      &kp BSLH                &kp TILDE    &kp FSLH             &mo L_SYM
     >;
   };
   
