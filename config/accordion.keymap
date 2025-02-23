@@ -305,6 +305,10 @@ CB4(L_TT, p_lrbrc, &m_lrbrc, L_PAR)
 // CB4(RMM_, n_euro, &kp EURO, L_NUM)
 // CB4(R_MM, n_gbp , &kp GBP , L_NUM)
 
+// combos L_EDT
+// This is available in case some app cannot do LS(INS) LC(INS) 
+CB4(L_MM, copypaste, &mt LC(V) LC(C), L_EDT)
+
 
 // Combos Base layer
 CB4(LTT_, esca, &kp ESC        , L_AL1)
@@ -338,8 +342,8 @@ CB3(RM_M, entr, &kp ENTER)
     display-name = "Alpha 1";
     bindings = <
       HLS(C)       HLA(D)       HLC(L)            HRC(U)       HLA(O)       HRS(I)
-      &hl L_PAR S  &hl L_MSE T  &hl L_NAV R       &hl L_ACC A  &hl L_EDT E  &hl L_RXP H
-      &hl L_NUM N               &kp SPACE         &sl L_AL2                 &hl L_SYM M
+      &hl L_PAR S  &hl L_MSE T  &hl L_NAV R       &hl L_ACC A  &kp E        &hl L_RXP H
+      &hl L_NUM N               &hl L_EDT SPACE         &sl L_AL2                 &hl L_SYM M
       
     >;
   };
@@ -425,11 +429,12 @@ CB3(RM_M, entr, &kp ENTER)
   };
   
   editing {
+    // The left-hand shortcuts can be used while the right hand holds the mouse
     display-name = "Edit shortcuts";
     bindings = <
-      TODO    E_FIND   E_REPL   TODO  &kp INSERT  E_REDO
-      E_SAVE  E_PASTE  E_COPY   TODO  &mo L_EDT   E_UNDO
-      TODO             TODO     TODO              TODO
+      E_FIND  E_REPL   &kp DEL    TODO  &kp INS  TODO
+      E_SAVE  E_COPY   E_PASTE    TODO  TODO     TODO
+      E_UNDOREDO       &mo L_EDT  TODO           TODO
     >;
   };
   
