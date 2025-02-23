@@ -28,16 +28,17 @@
 // #define NAV_TAP_TERM 300
 // #define TAPDANCE_2_TERM 250
 // #define TAPDANCE_3_TERM 350
-#define HOLDTAP_TERM 350
-#define HOLDTAP_LAYER_TERM 350
-#define TIMEOUT_STICKY_LEADER_KEY  2000
+#define HOLDTAP_TERM         350
+#define HOLDTAP_LAYER_TERM   350
+#define TIMEOUT_STICKY_LAYER 1000
+#define TIMEOUT_STICKY_KEY   2000
 
 &sk {
-  release-after-ms = <TIMEOUT_STICKY_LEADER_KEY>;
+  release-after-ms = <TIMEOUT_STICKY_KEY>;
   quick-release;
 };
 &sl { 
-  release-after-ms = <TIMEOUT_STICKY_LEADER_KEY>;
+  release-after-ms = <TIMEOUT_STICKY_LAYER>;
 };
 &mt {
   tapping-term-ms = <HOLDTAP_TERM>;
@@ -336,20 +337,20 @@ CB3(RM_M, entr, &kp ENTER)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)       HLA(D)       HLC(L)         HRC(M)       HLA(O)       HRS(I)
-      &hl L_PAR S  &hl L_MSE T  &hl L_NAV R    &hl L_ACC N  &hl L_EDT A  &hl L_RXP E
-      &hl L_NUM U               &kp SPACE      &sl L_AL2                 &hl L_SYM H
+      HLS(C)       HLA(D)       HLC(L)            HRC(U)       HLA(O)       HRS(I)
+      &hl L_PAR S  &hl L_MSE T  &hl L_NAV R       &hl L_ACC A  &hl L_EDT E  &hl L_RXP H
+      &hl L_NUM N               &kp SPACE         &sl L_AL2                 &hl L_SYM M
       
     >;
   };
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp X   &kp B   &kp V       &kp F   &kp Q   &kp Y
-      &kp Z   &kp P   &kp W       &kp G   &kp K   &kp J
+      &kp K   &kp B   &kp V       &kp F   &kp Q   &kp Y
+      &kp G   &kp P   &kp W       &kp Z   &kp X   &kp J
+//  Letters used in French, and some letters of the Cyrillic layout
       &kp BS_YU       &kp CC_CH   &kp OE_SH       &kp AE_SHT
     >;
-//  Last line letters used in French, and some letters of the Cyrillic layout
   };
   numbers {
     display-name = "Numbers+Math";
