@@ -68,11 +68,11 @@
 
 #define B1 12
 #define B2 13
-#define B3 14
+// #define B3 14
 
-#define B4 15
-#define B5 16
-#define B6 17
+// #define B4 15
+#define B5 14
+#define B6 15
 
 #define L_AL1 0
 #define L_AL2 1
@@ -309,6 +309,10 @@ CB4(L_TT, p_lrbrc, &m_lrbrc, L_PAR)
 // This is available in case some app cannot do LS(INS) LC(INS) 
 CB4(L_MM, copypaste, &mt LC(V) LC(C), L_EDT)
 
+CB4(B5 B6, midclck  , M_B3, L_EDT)
+CB4(RTT_ , mouseback, M_RW, L_EDT)
+CB4(R_TT , mousefrwd, M_FW, L_EDT)
+
 
 // Combos Base layer
 CB4(LTT_, esca, &kp ESC        , L_AL1)
@@ -430,11 +434,11 @@ CB3(RM_M, entr, &kp ENTER)
   
   editing {
     // The left-hand shortcuts can be used while the right hand holds the mouse
-    display-name = "Edit shortcuts";
+    display-name = "Edit shortcuts + Mouse";
     bindings = <
-      E_FIND  E_REPL   &kp DEL    TODO  &kp INS  TODO
-      E_SAVE  E_COPY   E_PASTE    TODO  TODO     TODO
-      E_UNDOREDO       &mo L_EDT  TODO           TODO
+      HLS(LC(R))  HLA(LC(F))  HLC(DEL)      M_SU   M_MU   M_SD
+      E_SAVE      E_COPY      E_PASTE       M_ML   M_MD   M_MR
+      E_UNDOREDO              &mo L_EDT     M_B1          M_B2 
     >;
   };
   
@@ -453,11 +457,9 @@ CB3(RM_M, entr, &kp ENTER)
   mouse {
     display-name = "Mouse";
     bindings = <
-      &kp LSHIFT  &kp LALT   &kp LCTRL    M_B1   M_MU    M_B2
+      &kp LSHIFT  &kp LALT   &kp LCTRL    M_SU   M_MU    M_SD
       M_B2        &mo L_MSE  M_B1         M_ML   M_MD    M_MR
-      TODO                   &kp LALT     M_SU           M_SD 
-      
-      
+      TODO                   &kp LALT     M_B1           M_B2 
     >;
   };
 
