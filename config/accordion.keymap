@@ -345,7 +345,7 @@ CB3(RM_M, entr, &kp ENTER)
   alpha1 {
     display-name = "Alpha 1";
     bindings = <
-      HLS(C)       HLA(D)       HLC(L)            HRC(U)       HLA(O)       HRS(I)
+      HLS(C)       HLA(D)       HLC(L)            HRC(O)       HLA(I)       HRS(U)
       &hl L_PAR S  &hl L_MSE T  &hl L_NAV R       &hl L_ACC A  &kp E        &hl L_RXP H
       &hl L_NUM N               &hl L_EDT SPACE         &sl L_AL2                 &hl L_SYM M
       
@@ -354,8 +354,8 @@ CB3(RM_M, entr, &kp ENTER)
   alpha2 {
     display-name = "Alpha 2";
     bindings = <
-      &kp K   &kp B   &kp V       &kp F   &kp Q   &kp Y
-      &kp G   &kp P   &kp W       &kp Z   &kp X   &kp J
+      &kp Q   &kp B   &kp V       &kp J   &kp F   &kp K
+      &kp G   &kp P   &kp W       &kp X   &kp Y   &kp Z
 //  Letters used in French, and some letters of the Cyrillic layout
       &kp BS_YU       &kp CC_CH   &kp OE_SH       &kp AE_SHT
     >;
