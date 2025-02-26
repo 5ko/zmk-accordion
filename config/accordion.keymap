@@ -128,7 +128,7 @@
     require-prior-idle-ms = <250>;
     flavor = "tap-preferred";
     bindings = <&mo>, <&kp>;
-    retro-tap;
+//     retro-tap;
   };
   
   bspc_del: backspace_delete {
