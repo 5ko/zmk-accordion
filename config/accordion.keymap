@@ -329,8 +329,8 @@ CB4(R_MM, rend, &mt END  RIGHT , L_AL1)
 CB4(RTM_, cbup, &kp UP  , L_AL1)
 CB4(RMT_, cbdn, &kp DOWN, L_AL1)
 
-CB4(RT_M, cbup, &kp PG_UP, L_AL1)
-CB4(RM_T, cbdn, &kp PG_DN, L_AL1)
+CB4(RT_M, cpup, &kp PG_UP, L_AL1)
+CB4(RM_T, cpdn, &kp PG_DN, L_AL1)
 
 
 // CB4(R_MM, rght, &mt END  RIGHT , L_AL1)
